@@ -1,0 +1,42 @@
+{
+   "H1":{
+      "name":"Visibility of System Status",
+      "explanation": "Does the system provide immediate and clear feedback about actions and ongoing processes?"
+   },
+   "H2":{
+      "name":"Match between System and Real World",
+      "explanation": "Does the interface use familiar language and concepts for users, avoiding technical jargon?"
+   },
+   "H3":{
+      "name":"User Control and Freedom",
+      "explanation": "Can users easily undo or exit unwanted actions (e.g., cancel, back, undo)?"
+   },
+   "H4":{
+      "name":"Consistency and Standards",
+      "explanation": "Are design elements and terminology consistent throughout the application? Are platform or industry standards followed?"
+   },
+   "H5":{
+      "name":"Error Prevention",
+      "explanation": "Are common user errors prevented by the design (e.g., confirmation dialogs, input constraints)?"
+   },
+   "H6":{
+      "name":"Recognition Rather than Recall",
+      "explanation": "Are options, instructions, and actions visible rather than requiring users to remember them?"
+   },
+   "H7":{
+      "name":"Flexibility and Efficiency of Use",
+      "explanation": "Are there shortcuts or advanced features available for experienced users? Is the interface still simple for novices?"
+   },
+   "H8":{
+      "name":"Aesthetic and Minimalist Design",
+      "explanation": "Is the interface clean, with only relevant information presented?"
+   },
+   "H9":{
+      "name":"Help Recognize, Diagnose, Recover from Errors",
+      "explanation": "Are error messages in plain language, clearly describing the issue and suggesting solutions?"
+   },
+   "H10":{
+      "name":"Help and Documentation",
+      "explanation": "Is help or documentation available if needed, even if the interface is mostly self-explanatory?"
+   }
+}

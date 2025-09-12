@@ -1,0 +1,57 @@
+{
+    "app_id": "KCR",
+    "name": "KnowledgeCheckR",
+    "description": "KnowledgeCheckR is a browser-based learning platform offering microlearning, spaced repetition, and gamification. It supports multiple question types, provides instant feedback, and is used for training, exams, and compliance in corporate and educational settings.",
+    "personas": [
+      {
+        "persona_id": "P1",
+        "name": "Teacher",
+        "description": "A teacher who wants to create and manage knowledge checks (quizzes) to support student learning effectively.",
+        "tasks": [
+          {
+            "task_id": "T1",
+            "name": "Account Registration and Login",
+            "description": "Register a new account using your email, then log in with the created credentials.",
+            "video_file": "teacher/1_registration_and_login/registration_and_login.mp4"
+          },
+          {
+            "task_id": "T2",
+            "name": "Knowledge Check Creation",
+            "description": "Create a new knowledge check by providing a title, image, description, deadline, and adding 2 multiple-choice questions. Complete all required fields and save the knowledge check.",
+            "video_file": "teacher/2_create_knowledge_check/create_knowledge_check.mp4"
+          },
+          {
+            "task_id": "T3",
+            "name": "Knowledge Check Extension",
+            "description": "Extend the created knowledge check by adding a 'Text-Segments' question, requiring learners to arrange text elements in the correct order.",
+            "video_file": "teacher/3_add_segment_question/add_segment_question.mp4"
+          },
+          {
+            "task_id": "T4",
+            "name": "Knowledge Check Settings",
+            "description": "Enable anonymized access to a created knowledge check.",
+            "video_file": "teacher/4_enable_anonymized_access/enable_anonymized_access.mp4"
+          }
+        ]
+      },
+      {
+        "persona_id": "P2",
+        "name": "Student",
+        "description": "A student who wants to access and complete knowledge checks (quizzes) to support their learning and evaluate their understanding.",
+        "tasks": [
+          {
+            "task_id": "T1",
+            "name": "Knowledge Check Access",
+            "description": "Access the knowledge check without registration by using the provided access key.",
+            "video_file": "student/1_access_knowledge_check/access_knowledge_check.mp4"
+          },
+          {
+            "task_id": "T2",
+            "name": "Knowledge Check Completion",
+            "description": "Complete the knowledge check by answering all questions.",
+            "video_file": "student/2_complete_knowledge_check/complete_knowledge_check.mp4"
+          }
+        ]
+      }
+    ]
+}

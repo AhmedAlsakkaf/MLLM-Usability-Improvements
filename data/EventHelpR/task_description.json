@@ -1,0 +1,57 @@
+{
+    "app_id": "EHR",
+    "name": "EventHelpr",
+    "description": "EventHelpr is a free online tool for planning group events such as trips, meetings, or workshops. It lets you share schedules, locations, and collect feedback from participants to make decisions together.",
+    "personas": [
+      {
+        "persona_id": "P1",
+        "name": "Organizer",
+        "description": "An organizer planning a group vacation who uses the app to suggest several destination options, start a group discussion, and let everyone vote to decide where to go.",
+        "tasks": [
+          {
+            "task_id": "T1",
+            "name": "Account Registration and Login",
+            "description": "Register a new account using your email, then log in with the created credentials.",
+            "video_file": "organizer/1_registration_and_login/registration_and_login.mp4"
+          },
+          {
+            "task_id": "T2",
+            "name": "Event Creation",
+            "description": "Create an event by entering a title, uploading an image, adding a description, and selecting the date. Then save it.",
+            "video_file": "organizer/2_create_event/create_event.mp4"
+          },
+          {
+            "task_id": "T3",
+            "name": "Enable Decision Support",
+            "description": "Enable a pro/ con analysis and allow group participants to add ideas for collaborative decision-making.",
+            "video_file": "organizer/3_enable_decision_support/enable_decision_support.mp4"
+          },
+          {
+            "task_id": "T4",
+            "name": "Add Initial Options",
+            "description": "Add three potential destinations to start the discussion and allow participants to give feedback.",
+            "video_file": "organizer/4_add_initial_options/add_initial_options.mp4"
+          }
+        ]
+      },
+      {
+        "persona_id": "P2",
+        "name": "Participant",
+        "description": "A group member joining the vacation who uses the app to view the suggested destinations, join the discussion, and vote for their favorite option.",
+        "tasks": [
+          {
+            "task_id": "T1",
+            "name": "Access Event",
+            "description": "Access the event without registration by using the provided access key.",
+            "video_file": "participant/1_access_event/access_event.mp4"
+          },
+          {
+            "task_id": "T2",
+            "name": "Review and Contribute to Discussion",
+            "description": "Review the suggested destinations by adding pros and cons for each, and contribute a new option to the discussion.",
+            "video_file": "participant/2_review_and_contribute_to_discussion/review_and_contribute_to_discussion.mp4"
+          }
+        ]
+      }
+    ]
+}

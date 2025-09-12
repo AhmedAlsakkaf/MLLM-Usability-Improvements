@@ -1,0 +1,826 @@
+{
+  "EHR_P1_T1": [
+    {
+      "description": "The system allows account creation without verifying the email address first. This could lead to users creating accounts with typos in their email, preventing them from logging in later or receiving important notifications.",
+      "recommendation": "Implement email verification during account creation. Send a verification link to the provided email address and require users to click the link before their account is fully activated.",
+      "severity": "Major Issue",
+      "heuristics": [
+        "Error Prevention"
+      ],
+      "rank_justification": "Allowing account creation without email verification is a critical security and usability issue. It can lead to users being locked out of their accounts due to typos and prevents important notifications from being delivered. This is a high severity issue because it directly impacts account access and user experience."
+    },
+    {
+      "description": "The password fields do not provide any visual feedback on password strength or complexity requirements during input. Users might create weak passwords that are easily compromised.",
+      "recommendation": "Implement a password strength indicator that provides real-time feedback as the user types their password. Clearly display the password complexity requirements (e.g., minimum length, special characters) near the password fields.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention"
+      ],
+      "rank_justification": "Lack of password strength feedback is a significant security vulnerability. Users are likely to create weak passwords, making their accounts susceptible to compromise. This is a high severity issue due to the potential for security breaches."
+    },
+    {
+      "description": "After creating an account, the user is taken to a \"Registration completed\" page that states \"There is only one last step missing before you can login.\" However, the user is not prompted to complete this step, and the user must manually log in.",
+      "recommendation": "After account creation, automatically redirect the user to the login page or provide a direct link to the login page on the \"Registration completed\" page.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ],
+      "rank_justification": "Failing to redirect or provide a clear login link after registration creates a confusing and frustrating user experience. The user is left unsure of what to do next, leading to potential abandonment. This is a high severity issue because it directly impacts the user's ability to access the application after registration."
+    },
+    {
+      "description": "Users lack immediate guidance and support after registration when verifying their email, leading to frustration and potential abandonment due to the absence of direct links to check their email, resend the verification email, or access relevant help resources. This disconnect between registration and verification hinders a smooth onboarding experience.\n",
+      "recommendation": "On the registration confirmation page, provide a clear call to action with options to either \"Check Your Email\" (opens a new tab with a list of common email providers) or \"Troubleshoot Verification\" (links to a FAQ addressing common issues like spam filters and resending the verification email).\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall",
+        "Help and Documentation"
+      ],
+      "rank_justification": "Lack of guidance and support after registration when verifying their email leads to user frustration and potential abandonment. Providing direct links to check email, resend verification, or access help resources is crucial for a smooth onboarding experience. This is a high severity issue because it directly impacts the user's ability to complete the registration process."
+    },
+    {
+      "description": "After clicking 'Create account', the system displays a 'Registration completed' message, but it's unclear how long it will take to receive the verification email. Users might be unsure if the process is still running or if there's an issue.",
+      "recommendation": "Add a loading indicator or a brief message like 'Sending verification email...' while the email is being sent. Also, provide an estimated time for email arrival or instructions on what to do if the email is not received within a certain timeframe.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ],
+      "rank_justification": "Unclear feedback after clicking 'Create account' can cause user uncertainty and anxiety. Users need to know if the process is still running and what to expect. This is a medium severity issue because it affects user confidence and perception of the system's reliability."
+    },
+    {
+      "description": "The 'My Events' page, after logging in, shows a lot of empty space and 'No entries present' messages. This creates a feeling of emptiness and doesn't immediately guide the user on what to do next.",
+      "recommendation": "Include a call to action button or a short tutorial on the 'My Events' page to guide new users on how to create their first event. Consider adding placeholder content or example events to demonstrate the app's functionality.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "The empty 'My Events' page after login provides a poor first impression and doesn't guide new users. Lack of guidance on how to create an event can lead to confusion and abandonment. This is a medium severity issue because it impacts initial user engagement and feature discovery."
+    },
+    {
+      "description": "The phrase \"Enter your event key\" at the bottom of the page might be confusing for new users who are not familiar with the concept of an event key. It's not immediately clear what this key is or how to obtain it.",
+      "recommendation": "Provide a brief explanation of what an event key is and how it's used, or rephrase it to something more user-friendly like \"Enter event code\" or \"Join event with code\".",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ],
+      "rank_justification": "The phrase 'Enter your event key' is unclear to new users. Lack of explanation can lead to confusion and prevent users from joining events. This is a medium severity issue because it hinders a core functionality of the application."
+    },
+    {
+      "description": "There is no help or documentation available on the registration page to guide users through the process or explain the privacy policy.",
+      "recommendation": "Add a link to a help page or a tooltip next to each field on the registration form to provide context and guidance. Also, provide a clear and concise explanation of the privacy policy and how user data is handled.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help and Documentation"
+      ],
+      "rank_justification": "The absence of help or documentation on the registration page can lead to user frustration and confusion, especially regarding privacy policies. Providing context and guidance is essential for a positive user experience. This is a medium severity issue because it impacts user trust and understanding of the registration process."
+    },
+    {
+      "description": "The term \"EventHelpr\" itself, while functional, doesn't immediately convey the purpose of the application. A more descriptive name could improve user understanding.",
+      "recommendation": "Consider a name that more directly reflects the app's function, such as \"GroupEventPlanner\" or \"EventOrganizer\".",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ],
+      "rank_justification": "The name 'EventHelpr' is not descriptive and doesn't immediately convey the app's purpose. A more descriptive name could improve user understanding and memorability. This is a low severity issue because it primarily affects branding and initial perception."
+    },
+    {
+      "description": "The landing page has a busy background image that doesn't add value and can be distracting. The image is a stylized photo of a conference, which doesn't clearly communicate the app's purpose for organizing various types of events.",
+      "recommendation": "Replace the background image with a simpler, more abstract graphic or a solid color that aligns with the brand's color scheme. Alternatively, use a carousel of images showcasing different event types the app can help organize (e.g., travel, meetings, workshops).",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "A busy and irrelevant background image on the landing page can be distracting and detract from the app's message. A simpler or more relevant image would improve the visual appeal and clarity. This is a low severity issue because it primarily affects aesthetics."
+    },
+    {
+      "description": "The registration process requires email verification, which adds an extra step and can be inefficient for users who want to quickly access the platform.",
+      "recommendation": "Consider offering alternative registration methods, such as social login (e.g., Google, Facebook), to streamline the process for users who prefer a faster signup.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use"
+      ],
+      "rank_justification": "Requiring email verification adds an extra step to the registration process. While it improves security, it can be perceived as inefficient by some users. Offering alternative registration methods like social login can streamline the process. This is a low severity issue because it primarily affects user convenience."
+    }
+  ],
+  "EHR_P1_T2": [
+    {
+      "description": "The form allows the user to select an end date that is before the start date. This is a common error that should be prevented.",
+      "recommendation": "Implement a validation check to ensure the end date is not before the start date. Display an error message if the user attempts to select an invalid end date.",
+      "severity": "Major Issue",
+      "heuristics": [
+        "Error Prevention"
+      ],
+      "rank_justification": "Allowing an end date before the start date is a critical error that directly impacts the functionality and validity of the event creation process. This can lead to significant user frustration and data integrity issues."
+    },
+    {
+      "description": "There are no error messages displayed during the event creation process, even if required fields are left blank. This makes it difficult for the user to understand what information is missing or incorrect.",
+      "recommendation": "Implement error messages that appear when the user attempts to create an event with missing required fields. The error messages should clearly indicate which fields need to be filled in and provide guidance on the expected format or content.",
+      "severity": "Major Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors"
+      ],
+      "rank_justification": "The absence of error messages for required fields is a severe usability issue. Users are left guessing what went wrong, leading to frustration and potentially abandonment of the event creation process."
+    },
+    {
+      "description": "There is no clear \"cancel\" or \"reset\" button on the \"Create event\" page. If a user starts filling out the form and decides not to create the event, there's no obvious way to discard the changes and return to the previous page without manually navigating back.",
+      "recommendation": "Add a \"Cancel\" button at the bottom of the \"Create event\" page, next to the \"Create event\" button. This button should clear all entered data and redirect the user back to the \"My events\" page.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "User Control and Freedom"
+      ],
+      "rank_justification": "The lack of a 'Cancel' button makes it difficult for users to abandon the event creation process, forcing them to navigate away manually and potentially losing entered data. This is a significant usability issue that hinders user control."
+    },
+    {
+      "description": "When selecting dates for the event, there is no clear way to clear the selected date. If a user accidentally selects the wrong date, they might struggle to remove it.",
+      "recommendation": "Add a clear \"X\" button next to the selected date in the date picker to allow users to easily clear the selected date.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "User Control and Freedom"
+      ],
+      "rank_justification": "The inability to easily clear a selected date is a high-severity issue. Incorrect date selection is a common user error, and the lack of a clear removal mechanism significantly impacts the user experience."
+    },
+    {
+      "description": "After clicking the \"Create event\" button, there is no immediate feedback to indicate that the event is being created. The user might wonder if the action was successful or if there's a delay.",
+      "recommendation": "Implement a loading indicator or a brief message like \"Creating event...\" after the \"Create event\" button is clicked. This provides immediate feedback to the user that the system is processing their request.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ],
+      "rank_justification": "The absence of immediate feedback after clicking 'Create event' can lead to user uncertainty and anxiety. Users need confirmation that their action is being processed to maintain trust and confidence in the system."
+    },
+    {
+      "description": "The map takes up a significant portion of the screen, even if the user doesn't need it at that moment. This can be distracting and push other important fields further down the page.",
+      "recommendation": "Collapse the map by default and provide a button to expand it when needed. This will reduce visual clutter and allow users to focus on other event details.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "The map taking up a significant portion of the screen when not needed is a moderate usability issue. It creates visual clutter and can distract users from other important fields."
+    },
+    {
+      "description": "The \"Create event\" page contains many fields and tabs, some of which might not be relevant for all users or events. This can overwhelm users and make it difficult to find the essential information.",
+      "recommendation": "Consider using progressive disclosure to hide less frequently used fields and tabs initially. Provide a clear way for users to access these advanced options if needed. Also, consider a step-by-step wizard to guide users through the event creation process.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "The presence of many fields and tabs on the 'Create event' page can overwhelm users, especially those who are new to the system. This can lead to confusion and difficulty in finding the necessary information."
+    },
+    {
+      "description": "The address field requires the user to search Google Maps, which might not be the most intuitive way for all users to input an address. Users might prefer a simple text field where they can directly type the address.",
+      "recommendation": "Provide a text field for address input in addition to the Google Maps search. This allows users to choose their preferred method of input, catering to different levels of familiarity with Google Maps.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall"
+      ],
+      "rank_justification": "Forcing users to use Google Maps for address input might not be intuitive for all. Providing a text field as an alternative input method improves accessibility and caters to different user preferences."
+    },
+    {
+      "description": "The date pickers for the start and end dates use different icons to clear the selected date. One uses an 'x' and the other uses a trash can icon.",
+      "recommendation": "Use the same icon for clearing the date in both date pickers. The 'x' is more common for clearing fields, so using that consistently would be better.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ],
+      "rank_justification": "Inconsistent icons for clearing dates in the date pickers is a moderate usability issue. Consistency is key to a good user experience, and using different icons for the same action can be confusing."
+    },
+    {
+      "description": "The term \"Agenda\" might not be immediately clear to all users, especially those unfamiliar with event planning terminology. It could be interpreted in various ways, leading to confusion about its purpose.",
+      "recommendation": "Replace \"Agenda\" with a more descriptive and user-friendly term like \"Schedule\" or \"Itinerary.\" This would provide a clearer understanding of the section's content and purpose.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ],
+      "rank_justification": "The term 'Agenda' might not be universally understood. Using a more descriptive term like 'Schedule' or 'Itinerary' improves clarity and reduces potential confusion."
+    },
+    {
+      "description": "The term \"Side events\" might not be immediately clear to all users. It could be interpreted in various ways, leading to confusion about its purpose.",
+      "recommendation": "Replace \"Side events\" with a more descriptive and user-friendly term like \"Additional events\" or \"Optional events.\" This would provide a clearer understanding of the section's content and purpose.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ],
+      "rank_justification": "The term 'Side events' might not be universally understood. Using a more descriptive term like 'Additional events' or 'Optional events' improves clarity and reduces potential confusion."
+    },
+    {
+      "description": "There are no keyboard shortcuts or advanced features readily apparent for experienced users to quickly navigate or input data. For example, date selection requires clicking through calendars, which can be time-consuming.",
+      "recommendation": "Implement keyboard shortcuts for common actions like date selection (e.g., typing the date directly) and navigation between sections. Consider adding a 'quick add' feature for agenda items or locations.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use"
+      ],
+      "rank_justification": "The lack of keyboard shortcuts and advanced features primarily affects experienced users. While not critical, implementing these features can significantly improve efficiency and satisfaction for power users."
+    }
+  ],
+  "EHR_P1_T3": [
+    {
+      "description": "Users struggle to find and understand the pro/con analysis feature because its label is unfamiliar and its location within the \"Decision Support\" tab is not intuitive, hindering their ability to effectively utilize collaborative decision-making tools.\n",
+      "recommendation": "Improve discoverability and user understanding of the pro/con analysis feature by renaming it to \"Enable Voting on Ideas,\" placing it prominently within the agenda settings (or creation interface), and providing a concise explanation like \"Let participants vote on the pros and cons of each idea.\"\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World",
+        "Flexibility and Efficiency of Use"
+      ],
+      "rank_justification": "Users cannot find or understand a core feature, hindering collaborative decision-making. This is a major usability issue that directly impacts the tool's primary function."
+    },
+    {
+      "description": "Users struggle to understand the purpose and functionality of \"Activate prioritization\" and \"Activate pro/con analysis\" due to unclear labeling and a lack of readily available context, forcing them to rely on hover-over information or guesswork. This lack of clarity hinders users' ability to effectively utilize these features and understand their relationship.\n",
+      "recommendation": "Clearly label the feature as \"Prioritize Destinations\" and provide concise, always-visible descriptions explaining that it enables voting on pros/cons and ranks destinations based on those votes, clarifying its purpose and relationship to pro/con analysis.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World",
+        "Recognition Rather than Recall",
+        "Help and Documentation"
+      ],
+      "rank_justification": "Unclear labeling prevents users from understanding and utilizing key features, impacting their ability to make informed decisions. This is a high-severity issue."
+    },
+    {
+      "description": "Users struggle to understand the purpose and functionality of the \"Phase\" options within the decision support settings due to unclear and ambiguous terminology like \"Perform evaluation\" and \"Show results,\" hindering their ability to effectively navigate and utilize the feature.\n",
+      "recommendation": "Clearly label the phases as \"Evaluation Phase\" and \"Results Phase,\" and provide a brief description of each phase to explain the process to users.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World",
+        "Consistency and Standards"
+      ],
+      "rank_justification": "Ambiguous terminology within a core feature (decision support) prevents users from effectively navigating and utilizing it. This directly impacts the user's ability to make decisions."
+    },
+    {
+      "description": "The default term \"Agenda\" for the section where users add ideas is not intuitive, causing confusion about its purpose and creating inconsistency when users rename it, hindering discoverability and efficient use of the feature.\n",
+      "recommendation": "Allow users to rename the \"Agenda\" section to a term that better reflects its purpose (e.g., \"Destinations,\" \"Destination Ideas,\" or \"Suggestions\"), consistently apply the new name throughout the application, and provide a brief explanation or tooltip clarifying that this section is for adding vacation destination ideas.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards",
+        "Flexibility and Efficiency of Use",
+        "Recognition Rather than Recall"
+      ],
+      "rank_justification": "The default term for a key section is not intuitive, causing confusion and hindering discoverability. This impacts the user's ability to add and manage ideas."
+    },
+    {
+      "description": "Users struggle to quickly and easily understand the functionality of key features like \"Activate pro/con analysis\" and \"Activate prioritization\" because the primary method of explanation relies on discoverable, fleeting tooltips that require extra interaction and may contain too much information. This lack of immediate clarity hinders feature adoption and efficient use of the tool.\n",
+      "recommendation": "Provide a concise, static description of the pro/con analysis and prioritization features on the settings page, supplemented by a link to a dedicated help page for more detailed information.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use",
+        "Help and Documentation"
+      ],
+      "rank_justification": "Reliance on fleeting tooltips for explaining key features hinders feature adoption and efficient use. Users need immediate clarity to understand functionality."
+    },
+    {
+      "description": "After clicking 'Edit' on the event, the user is taken to a page with many settings and options. If the user accidentally clicks 'Edit' and wants to return to the previous page, there is no clear 'Cancel' or 'Back' button to easily exit the editing mode without making changes.",
+      "recommendation": "Add a prominent 'Cancel' button or a 'Back' link at the top or bottom of the event editing page to allow users to easily exit the editing mode without saving any changes.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "User Control and Freedom"
+      ],
+      "rank_justification": "Lack of a 'Cancel' button can lead to accidental changes and frustration, especially in a page with many settings. This is a significant usability issue."
+    },
+    {
+      "description": "The 'Activate pro/con analysis' checkbox lacks a clear explanation of its impact on the event planning process. Users might activate it without fully understanding the implications, potentially leading to unintended consequences in how decisions are made.",
+      "recommendation": "Add a tooltip or a short descriptive text next to the checkbox explaining how activating pro/con analysis will affect the event planning process, including how participants can contribute and how the final decision will be made.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention"
+      ],
+      "rank_justification": "Lack of explanation for a feature's impact can lead to unintended consequences and incorrect usage. This is a moderate usability issue."
+    },
+    {
+      "description": "The interface does not provide immediate feedback or guidance on how to add ideas for collaborative decision-making after enabling the pro/con analysis. Users might be unsure where to input their suggestions or how to initiate the discussion.",
+      "recommendation": "After enabling the pro/con analysis, display a brief message or a call-to-action button that directs users to the section where they can add ideas or start a discussion. This could be a link to the 'Agenda' or 'Interesting places' section, depending on the context.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention"
+      ],
+      "rank_justification": "Lack of guidance after enabling a feature leaves users unsure how to proceed, hindering the collaborative process. This is a moderate usability issue."
+    },
+    {
+      "description": "The user must navigate through multiple pages (My Events -> Event -> Edit Event -> Decision Support) to enable pro/con analysis, which requires remembering the path and where the setting is located. This increases cognitive load.",
+      "recommendation": "Provide a direct link or shortcut to the 'Decision Support' settings from the 'My Events' or 'Event' page, or make the pro/con analysis setting more prominent within the event settings.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall"
+      ],
+      "rank_justification": "Difficult navigation to a key setting increases cognitive load and reduces efficiency. This is a moderate usability issue."
+    },
+    {
+      "description": "The 'Phase' section with 'Perform evaluation' and 'Show results' radio buttons requires the user to understand the different phases of the decision-making process. The user must recall what each phase entails.",
+      "recommendation": "Provide a brief explanation of each phase (Perform evaluation and Show results) directly below the radio buttons. For example, 'Perform evaluation: Participants can add pros and cons' and 'Show results: Participants can only view the results'.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall"
+      ],
+      "rank_justification": "Requiring users to recall the meaning of phases without providing context hinders understanding and usability. This is a moderate usability issue."
+    },
+    {
+      "description": "After clicking 'Save Settings' on the 'Decision Support' tab, there is no immediate visual confirmation that the settings have been saved. The user might be unsure if the action was successful.",
+      "recommendation": "Implement a brief, non-intrusive notification (e.g., a green checkmark or a 'Settings saved' message) near the 'Save Settings' button to confirm the action's success.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ],
+      "rank_justification": "Lack of visual confirmation after saving settings creates uncertainty and reduces confidence in the system. This is a minor usability issue."
+    },
+    {
+      "description": "When enabling pro/con analysis under 'Decision Support', there is no immediate way to undo this action if the user changes their mind before saving. The user must uncheck the box and save the settings.",
+      "recommendation": "Consider adding a confirmation dialog when enabling pro/con analysis, giving the user a chance to cancel the action before it's applied. Alternatively, provide a clear visual cue that the setting has been changed but not yet saved, along with a 'Revert' option.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "User Control and Freedom"
+      ],
+      "rank_justification": "Lack of immediate undo option for enabling a feature can lead to unnecessary steps and frustration. This is a minor usability issue."
+    },
+    {
+      "description": "The decision support settings use the terms \"pro/con analysis\" and \"prioritization\". While related, these are distinct concepts and using both without clear differentiation can be confusing.",
+      "recommendation": "Clarify the difference between \"pro/con analysis\" and \"prioritization\" with a brief explanation next to each option. Alternatively, use a single, overarching term like \"decision support methods\" and provide more detailed explanations within each method's settings.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ],
+      "rank_justification": "Lack of clear differentiation between related concepts can cause confusion. This is a minor usability issue."
+    },
+    {
+      "description": "After enabling pro/con analysis and renaming the agenda, the user has to click \"Save settings\" twice, once for each setting. This is inefficient.",
+      "recommendation": "Consolidate the settings saving process so that all changes are saved with a single click of the \"Save settings\" button. This would streamline the user experience and improve efficiency.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use"
+      ],
+      "rank_justification": "Requiring multiple clicks to save settings is inefficient and can be frustrating. This is a minor usability issue."
+    },
+    {
+      "description": "The settings page contains many options, some of which might be rarely used. This can overwhelm the user and make it harder to find the desired settings.",
+      "recommendation": "Consider grouping related settings under collapsible sections or using a progressive disclosure approach to reveal advanced options only when needed. This would declutter the interface and improve usability.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "Too many options on a page can overwhelm users and make it harder to find desired settings. This is a minor usability issue."
+    },
+    {
+      "description": "The 'Decision Support' settings page contains a lot of text explaining the features. While helpful, it can make the page feel cluttered and less visually appealing.",
+      "recommendation": "Move the explanatory text to tooltips or a separate help section accessible via a question mark icon. This would keep the main settings page cleaner and more focused.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "Too much text on a page can make it feel cluttered and less visually appealing. This is a minor usability issue."
+    },
+    {
+      "description": "When enabling pro/con analysis, the tooltip explaining the feature is lengthy and may not be easily understood by all users. This could lead to confusion about how the feature works and how to use it effectively.",
+      "recommendation": "Simplify the tooltip text to provide a concise explanation of the pro/con analysis feature. Use clear and straightforward language to ensure that all users can easily understand the feature's purpose and functionality.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors"
+      ],
+      "rank_justification": "Lengthy and complex tooltip text can lead to confusion and hinder understanding. This is a minor usability issue."
+    },
+    {
+      "description": "After enabling pro/con analysis and saving the settings, there is no immediate visual confirmation that the feature has been successfully activated. Users may be unsure if their changes have been saved correctly.",
+      "recommendation": "Provide a clear visual confirmation message (e.g., a green checkmark or a success message) after saving the settings to indicate that the pro/con analysis feature has been successfully enabled. This will provide users with immediate feedback and reassurance.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors"
+      ],
+      "rank_justification": "Lack of visual confirmation after enabling a feature can lead to uncertainty and reduce confidence in the system. This is a minor usability issue."
+    }
+  ],
+  "EHR_P1_T4": [
+    {
+      "description": "Users lack sufficient information and reassurance when deleting destinations, leading to uncertainty about the action's consequences and potential for accidental or incorrect deletions due to vague confirmation messages and missing context. This lack of clarity erodes user confidence and control over their data.\n",
+      "recommendation": "Enhance the destination deletion process by displaying a confirmation dialog that includes the destination's name, a clear explanation of the consequences of deletion (e.g., removal of associated discussions and votes), and uses \"Keep\" or \"Don't Remove\" instead of \"Cancel,\" followed by a brief on-screen confirmation message upon successful deletion.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors",
+        "Error Prevention",
+        "Visibility of System Status",
+        "User Control and Freedom"
+      ],
+      "rank_justification": "Accidental data loss is a critical issue. Deleting destinations without sufficient warning or confirmation can lead to significant user frustration and data loss, making it a high-severity problem."
+    },
+    {
+      "description": "Users lack control and flexibility when creating discussion posts, as the absence of a cancel button and post-submission confirmation or undo options leads to frustration and potential data loss if they change their mind or make mistakes. This creates a rigid and unforgiving posting experience.\n",
+      "recommendation": "Provide a clear \"Cancel\" button on the discussion post form and a temporary, dismissable confirmation message with an \"Edit\" option upon successful posting.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention",
+        "User Control and Freedom"
+      ],
+      "rank_justification": "Similar to destination deletion, the inability to cancel or edit discussion posts after submission can lead to data loss and user frustration, especially if mistakes are made. This lack of control is a high-severity issue."
+    },
+    {
+      "description": "When adding a discussion post, if the user forgets to add a title, there is no error message to indicate that the title is required. The post simply doesn't get added, leaving the user confused.",
+      "recommendation": "Implement client-side validation to check if the title field is empty before submitting the discussion post. Display an error message near the title field indicating that it is a required field.",
+      "severity": "Major Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors"
+      ],
+      "rank_justification": "Missing error messages for required fields (like the discussion title) prevents users from completing actions and provides a poor user experience. This is a high-severity issue because it blocks users from achieving their goal."
+    },
+    {
+      "description": "Users lack clear and immediate feedback and efficient navigation after completing actions on destination entries, leading to uncertainty about success and difficulty returning to the desired context (event or destination page). This disrupts their workflow and increases interaction cost.\n",
+      "recommendation": "Provide a clear \"Back to event\" link or notification with a direct link to the main event page after any action (creation, update, comment, deletion) performed on a destination entry.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use",
+        "Visibility of System Status"
+      ],
+      "rank_justification": "Lack of clear feedback and navigation after completing actions disrupts workflow and increases interaction cost. This is a significant usability issue that impacts efficiency and user satisfaction."
+    },
+    {
+      "description": "Users are overwhelmed and confused by the \"Destinations: Create entry\" form due to the presence of numerous, potentially unnecessary fields and the lack of contextual help, hindering their ability to efficiently and confidently add new destinations.\n",
+      "recommendation": "Simplify the \"Destinations: Create entry\" form by either making less critical fields optional/hiding them under an \"Advanced options\" toggle, and providing in-context help (tooltips/short descriptions) for all fields, with a link to more detailed documentation.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design",
+        "Help and Documentation"
+      ],
+      "rank_justification": "An overwhelming and confusing form hinders the user's ability to add new destinations. This is a significant usability issue that impacts efficiency and user satisfaction."
+    },
+    {
+      "description": "The \"Pro,\" \"Neutral,\" and \"Con\" radio buttons in the discussion section lack sufficient context and are too formal for casual vacation destination discussions, hindering users' ability to easily and intuitively contribute their opinions. This unclear labeling prevents users from understanding the purpose of these options and how they relate to sharing their thoughts on a destination.\n",
+      "recommendation": "Replace the \"Pro,\" \"Neutral,\" and \"Con\" options with a more intuitive and user-friendly voting system using clear labels like \"Yes,\" \"Maybe,\" and \"No\" or a \"Like/Dislike\" button, or a star rating system to improve user engagement and understanding.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World",
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "Unclear labeling of the 'Pro,' 'Neutral,' and 'Con' options prevents users from easily contributing their opinions. This is a moderate-severity issue because it hinders a core function of the discussion section."
+    },
+    {
+      "description": "When adding a destination, there is no 'cancel' button. If a user starts to add a destination but then changes their mind, they must complete the form or navigate back to the event page, losing any partially entered data.",
+      "recommendation": "Add a 'Cancel' button on the 'Destinations: Create entry' page. This will allow users to easily exit the form without saving or losing data.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "User Control and Freedom"
+      ],
+      "rank_justification": "The absence of a 'Cancel' button on the destination creation form forces users to either complete the form or lose their progress. This is a moderate-severity issue because it disrupts the user flow and can lead to frustration."
+    },
+    {
+      "description": "After adding a discussion posting, the user is not immediately notified that the posting has been added successfully. The user might be unsure if the action was completed.",
+      "recommendation": "After adding a discussion posting, display a brief confirmation message at the top of the screen indicating that the posting has been successfully added. This provides immediate feedback to the user.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ],
+      "rank_justification": "Lack of immediate feedback after adding a discussion posting can cause uncertainty and doubt. This is a moderate-severity issue because it affects user confidence and requires them to verify the action manually."
+    },
+    {
+      "description": "The process of adding multiple destinations is repetitive. After creating one destination, the user is taken back to the event page and must click 'Add entry' again to add another destination. This lacks efficiency for users who need to add several destinations at once.",
+      "recommendation": "After a destination is created, provide an option to 'Add another destination' directly from the destination's view page or the event page, which would streamline the process for users adding multiple destinations.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use"
+      ],
+      "rank_justification": "The repetitive process of adding multiple destinations is inefficient and time-consuming. This is a moderate-severity issue because it impacts user productivity."
+    },
+    {
+      "description": "The discussion section on the destination page lacks any guidance or instructions for new users. It's not immediately clear how to start a discussion or what the purpose of the 'Pro', 'Neutral', and 'Con' options are.",
+      "recommendation": "Add a brief explanation above the discussion section explaining its purpose and how to use it. Provide tooltips for the 'Pro', 'Neutral', and 'Con' options to clarify their meaning.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help and Documentation"
+      ],
+      "rank_justification": "Lack of guidance in the discussion section makes it difficult for new users to understand how to participate. This is a moderate-severity issue because it hinders user engagement."
+    },
+    {
+      "description": "The button labels \"Create\" and \"Save\" are used for similar actions (creating or updating a destination entry), but they are not consistent. This can lead to user confusion about what action the button will perform.",
+      "recommendation": "Use a consistent button label for creating and saving entries. For example, use \"Save\" for both creating and updating, or use \"Create\" for initial creation and \"Update\" for subsequent changes.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ],
+      "rank_justification": "Inconsistent button labels can lead to user confusion about the action being performed. This is a low-severity issue because it can be easily resolved and doesn't significantly impact functionality."
+    },
+    {
+      "description": "The success message \"Entry has been created successfully\" appears after creating a destination, but \"Entry has been updated successfully\" appears after editing. The term \"Entry\" is used in both messages, but the action verb changes. This inconsistency can be confusing.",
+      "recommendation": "Use a consistent structure for success messages. For example, \"Destination created successfully\" and \"Destination updated successfully\" would be more consistent and clear.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ],
+      "rank_justification": "Inconsistent success messages can be confusing, but the user still receives confirmation. This is a low-severity issue because it doesn't significantly impact functionality."
+    },
+    {
+      "description": "The term \"Contributed by\" is used when creating a destination entry, but the destination entry itself displays \"Contributed by\" with the user's name. The discussion section also shows \"Logged in as\" with the user's email. This inconsistency in terminology can be confusing.",
+      "recommendation": "Use a consistent term like \"Contributed by\" across all sections related to destination entries and discussions. Avoid using \"Logged in as\" in the discussion section; instead, use \"Contributed by\" to maintain consistency.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ],
+      "rank_justification": "Inconsistent terminology can be confusing, but it doesn't prevent users from completing tasks. This is a low-severity issue because it's primarily an aesthetic problem."
+    },
+    {
+      "description": "The \"Contributed by\" field in the \"Destinations: Create entry\" form uses the example text \"Name1\\,Name2\\,Name3\\,etc.\". This is not a common way to list names and might confuse users.",
+      "recommendation": "Change the example text to a more natural format, such as \"John Doe, Jane Smith, Peter Jones\". This will make it easier for users to understand how to enter multiple names.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ],
+      "rank_justification": "Unclear example text in the 'Contributed by' field might cause minor confusion, but users can likely figure it out. This is a low-severity issue because it's a minor aesthetic problem."
+    },
+    {
+      "description": "The voting bar is displayed in different colors for each destination. This is inconsistent and does not follow a clear standard.",
+      "recommendation": "Use a consistent color scheme for the voting bar across all destinations. This will help users easily understand the voting status without being distracted by varying colors.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ],
+      "rank_justification": "Inconsistent voting bar colors are distracting but don't prevent users from voting. This is a low-severity issue because it's primarily an aesthetic problem."
+    },
+    {
+      "description": "When adding a destination, there is no clear indication of what information is required or optional. The form fields are presented without context, potentially forcing the user to recall what details are relevant for each field.",
+      "recommendation": "Add placeholder text within each form field to provide examples or guidance on the expected input. For example, the 'Contributed by' field could have a placeholder like 'John Doe, Jane Smith'.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall"
+      ],
+      "rank_justification": "Lack of clear indication of required or optional information can cause minor confusion. This is a low-severity issue because users can still complete the form."
+    },
+    {
+      "description": "When adding a destination, the status dropdown defaults to 'None'. This doesn't provide any immediate recognition of possible status options, requiring the user to click and recall what statuses might be relevant.",
+      "recommendation": "Change the default status to 'Proposed' or 'Considering' to immediately show the user a possible status option and provide context for the dropdown.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall"
+      ],
+      "rank_justification": "The default status of 'None' doesn't provide immediate recognition of possible status options. This is a low-severity issue because it only requires an extra click."
+    },
+    {
+      "description": "When adding a destination, the 'Begin' and 'End' date fields are presented without any context or examples. The user has to click on the 'Select date...' button to understand how to input the date.",
+      "recommendation": "Add placeholder text to the 'Begin' and 'End' date fields, such as 'Select Start Date' and 'Select End Date', to provide immediate recognition of the field's purpose.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall"
+      ],
+      "rank_justification": "Lack of placeholder text in the date fields requires users to click to understand the input format. This is a low-severity issue because it only requires an extra click."
+    },
+    {
+      "description": "After adding a destination, the user is taken to the destination's page. If the user wants to add a comment, they have to scroll down to the discussion section. This is inefficient.",
+      "recommendation": "After adding a destination, automatically scroll the user to the discussion section of the destination's page.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use"
+      ],
+      "rank_justification": "Not automatically scrolling to the discussion section after adding a destination is a minor inconvenience. This is a low-severity issue because it only requires the user to scroll manually."
+    }
+  ],
+  "EHR_P2_T1": [
+    {
+      "description": "Users are confused by the term \"event key\" and its purpose, hindering their ability to easily access events without registration. The unclear terminology creates a barrier to entry, as users don't understand what it is or how to use it.\n",
+      "recommendation": "Use the input field label \"Enter your event access code\" and include a brief explanation below it, such as \"This code can be found in your event invitation email.\"\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World",
+        "Consistency and Standards"
+      ],
+      "rank_justification": "This is a critical issue because it directly prevents users from accessing the core functionality of the site (accessing events). If users don't understand what an 'event key' is, they cannot proceed. This is a high-severity usability issue."
+    },
+    {
+      "description": "The event key input field does not have any input validation or error handling. If the user enters an invalid key, there is no immediate feedback or suggestion on how to correct it. This can lead to user frustration and confusion.",
+      "recommendation": "Implement input validation for the event key field. Provide real-time feedback to the user if the key is in the wrong format or does not exist. Display a clear error message if the key is invalid and suggest checking the key or contacting the event organizer.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention"
+      ],
+      "rank_justification": "This is a high-severity issue. Entering an invalid key without any feedback is extremely frustrating and prevents users from accessing the event. Lack of validation and error handling directly blocks the user's goal."
+    },
+    {
+      "description": "After entering the event key and clicking the arrow, there is no immediate visual feedback to indicate that the system is processing the request. This can lead the user to believe that the button is not working or that the key was entered incorrectly.",
+      "recommendation": "Implement a loading animation (e.g., a spinning circle) or a brief message (e.g., \"Loading event...\") next to the arrow button after it's clicked to provide visual feedback that the system is working.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ],
+      "rank_justification": "This is a major issue. The lack of visual feedback after clicking the arrow makes the user unsure if their action was registered. This can lead to repeated clicks and frustration, potentially causing them to abandon the process. It directly impacts the user's ability to proceed smoothly."
+    },
+    {
+      "description": "The event key input field is located at the bottom of the page, hindering discoverability and creating an inefficient access point for users who already possess an event key. This placement adds unnecessary friction to the event access process.\n",
+      "recommendation": "Make the event key input field immediately visible near the top of the page to allow quick access to events without scrolling or account creation.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use",
+        "Recognition Rather than Recall"
+      ],
+      "rank_justification": "This is a major issue. Hiding the event key input field at the bottom of the page adds unnecessary friction to the event access process. Users with an event key should be able to quickly access the event without scrolling. This impacts efficiency and user satisfaction."
+    },
+    {
+      "description": "The initial landing page contains a lot of information and visual elements that are not directly relevant to the user task of accessing an event with an event key. This can be overwhelming and distracting.",
+      "recommendation": "Simplify the landing page by prioritizing the event key entry field and reducing the prominence of other elements like the 'Create event' button and the large image. Consider moving less critical information to a separate 'About' or 'Features' page.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "This is a moderate issue. A cluttered landing page can be overwhelming and distracting, making it harder for users to find the event key entry field. While it doesn't completely block access, it slows down the process and reduces user satisfaction."
+    },
+    {
+      "description": "The event page itself contains a lot of information, some of which might not be immediately relevant to all users. For example, the 'Description' section might be lengthy and not essential for someone just wanting to see the destinations and participants.",
+      "recommendation": "Consider using progressive disclosure to hide less frequently accessed information. For example, the 'Description' section could be collapsed by default and expanded only when the user clicks a 'Read More' button. This would make the page less cluttered and easier to scan.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "This is a moderate issue. Information overload on the event page can make it harder for users to find what they're looking for. Progressive disclosure can improve the user experience by prioritizing essential information."
+    },
+    {
+      "description": "The 'Create account' and 'Login' links are placed next to the 'Language' dropdown. This placement might suggest that changing the language requires an account or login, which is not the case. This could cause confusion for users who simply want to change the language.",
+      "recommendation": "Relocate the 'Language' dropdown to a more visually distinct area, separate from the account-related links. This will prevent users from associating language selection with account creation or login.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ],
+      "rank_justification": "This is a minor issue. While the placement of the language dropdown next to the account links is confusing, it doesn't prevent users from changing the language or accessing events. It's more of an aesthetic and organizational issue."
+    },
+    {
+      "description": "The site lacks a general help section or FAQ to assist users with common questions or troubleshooting. While the interface is relatively straightforward, new users might benefit from a dedicated help area.",
+      "recommendation": "Implement a help section or FAQ page accessible from the main navigation or footer. This section should address common questions about using the platform, such as creating events, inviting participants, and managing settings.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help and Documentation"
+      ],
+      "rank_justification": "This is a minor issue. While a help section or FAQ is beneficial, its absence doesn't prevent users from accessing the core functionality of the site. It's more of a nice-to-have feature that can improve the overall user experience."
+    }
+  ],
+  "EHR_P2_T2": [
+    {
+      "description": "When adding a new discussion posting, if the user forgets to select either 'Pro', 'Neutral', or 'Con', the 'Add posting' button still shows a success message, but the posting is not actually added. This gives the user false feedback.",
+      "recommendation": "Implement validation to ensure that a 'Pro', 'Neutral', or 'Con' option is selected before allowing the posting to be added. Display an error message if none is selected.",
+      "severity": "Major Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors"
+      ],
+      "rank_justification": "This is a critical issue because it provides false positive feedback to the user. The user believes their action was successful when it was not, leading to confusion and frustration. This can erode trust in the system."
+    },
+    {
+      "description": "Users struggle to efficiently navigate back to the event page from destination views due to the 'Back to event' link's inconsistent placement and low discoverability, often requiring excessive scrolling. This inconsistent navigation hinders user efficiency and creates a frustrating experience.\n",
+      "recommendation": "Implement a consistently styled and located \"Back to Event\" link in the top left corner of the destination page to provide quick and predictable navigation back to the main event page.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards",
+        "User Control and Freedom"
+      ],
+      "rank_justification": "Inconsistent and difficult navigation is a major usability issue. Users need to be able to move around the application easily. Requiring excessive scrolling and inconsistent placement of the 'Back to event' link significantly hinders user efficiency and creates a frustrating experience."
+    },
+    {
+      "description": "Users lack clear feedback when creating new destinations, experiencing uncertainty and potential errors due to the absence of confirmation messages and input validation. This makes it difficult for users to confidently and successfully add new destinations.\n",
+      "recommendation": "Enhance form submission by implementing client-side validation with clear error messages for required fields and adding a confirmation dialog after clicking 'Create' to prevent accidental submissions.\n",
+      "severity": "Major Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors",
+        "Error Prevention"
+      ],
+      "rank_justification": "Lack of clear feedback and input validation during destination creation can lead to errors and user uncertainty. This impacts the core functionality of adding destinations and can lead to incorrect data or abandoned attempts."
+    },
+    {
+      "description": "After adding a new destination, the page redirects to the destination's page, but there is no clear visual cue or message indicating that the destination has been successfully added. The user might be confused about whether the action was successful.",
+      "recommendation": "Display a brief confirmation message (e.g., \"Destination added successfully!\") at the top of the destination's page after the creation is complete. This provides immediate feedback to the user.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ],
+      "rank_justification": "Lack of confirmation message after adding a destination leaves the user unsure if the action was successful. While the redirect happens, the absence of explicit feedback is a significant usability issue."
+    },
+    {
+      "description": "The rating system uses different scales across the application. On the destination list, the rating is displayed as a number with two decimal places (e.g., 2.00), while on the destination details page, it's represented by stars. This inconsistency can confuse users about the actual rating value.",
+      "recommendation": "Standardize the rating system to use either stars or a numerical value consistently throughout the application. If using stars, ensure they accurately reflect the numerical rating. If using numerical values, maintain the same decimal precision across all displays.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ],
+      "rank_justification": "Inconsistent rating scales across the application can confuse users about the actual rating value. This inconsistency undermines the credibility and usefulness of the rating system."
+    },
+    {
+      "description": "After creating a new destination entry, there is no immediate way to edit the entry directly from the destination's page. The user must navigate back to the main event page and then click the edit icon next to the destination.",
+      "recommendation": "Add an \"Edit\" button directly on the destination's page, allowing users to modify the entry without navigating back to the main event page.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "User Control and Freedom"
+      ],
+      "rank_justification": "Requiring users to navigate back to the main event page to edit a destination adds unnecessary steps and friction to the editing process. Direct access to editing from the destination page is essential for efficient workflow."
+    },
+    {
+      "description": "When adding a pro or con to a destination, the \"Posting has been added successfully\" message appears, but it disappears too quickly. The user might miss it, especially if they are focused on other parts of the page.",
+      "recommendation": "Increase the display time of the \"Posting has been added successfully\" message to at least 3-5 seconds, or provide a more persistent visual cue, such as highlighting the newly added posting for a short duration.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ],
+      "rank_justification": "A fleeting success message is a moderate usability issue. Users may miss it, leading to uncertainty. Increasing the display time or providing a more persistent cue is important."
+    },
+    {
+      "description": "When adding a pro or con to a destination, the user has to remember their name and type it into the \"Name\" field. This requires the user to recall information that the system should already know.",
+      "recommendation": "Automatically populate the \"Name\" field with the user's name when they are logged in. This eliminates the need for the user to recall and type their name, improving efficiency and reducing the risk of errors.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall"
+      ],
+      "rank_justification": "Requiring the user to manually enter their name when adding a pro/con is inefficient and error-prone. The system should automatically populate this field for logged-in users."
+    },
+    {
+      "description": "When adding a new destination, there is no validation or guidance on the format or type of information expected in the 'Title' field. Users might enter incorrect or incomplete data, leading to confusion or errors later.",
+      "recommendation": "Implement input validation for the 'Title' field to ensure it contains a valid destination name. Provide a tooltip or placeholder text indicating the expected format (e.g., \"City, Country\").",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention"
+      ],
+      "rank_justification": "Lack of validation and guidance for the 'Title' field can lead to incorrect or incomplete data. Providing clear expectations for the input format is important for data quality."
+    },
+    {
+      "description": "When adding a pro or con to a destination, there is no 'cancel' button. If a user starts typing and then decides not to post, they must delete the text manually.",
+      "recommendation": "Include a 'Cancel' button next to the 'Add posting' button in the discussion section to allow users to easily discard their input.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "User Control and Freedom"
+      ],
+      "rank_justification": "The absence of a 'Cancel' button when adding a pro/con forces users to manually delete text, which is inefficient. A 'Cancel' button provides a more user-friendly way to discard input."
+    },
+    {
+      "description": "When adding a pro or con to a destination, there is no character limit or warning for the 'Type message...' field. Users might enter excessively long messages, which could negatively impact the display or readability of the discussion.",
+      "recommendation": "Implement a character limit for the 'Type message...' field and display a warning message as the user approaches the limit. This will prevent excessively long messages and ensure readability.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention"
+      ],
+      "rank_justification": "Lack of a character limit for the 'Type message...' field can lead to excessively long messages that negatively impact display and readability. Implementing a limit and warning message is important for maintaining a clean and readable discussion."
+    },
+    {
+      "description": "The terms \"Pro\", \"Neutral\", and \"Con\" are used to categorize discussion points. While commonly understood, they might not be immediately clear to all users, especially those less familiar with debate terminology.",
+      "recommendation": "Consider using more descriptive terms like \"Good Points\", \"Unsure\", and \"Bad Points\" or \"Advantages\", \"Neutral\", and \"Disadvantages\" to make the categories more accessible and intuitive.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ],
+      "rank_justification": "The terms 'Pro', 'Neutral', and 'Con' might not be immediately clear to all users. Using more descriptive terms can improve accessibility and understanding."
+    },
+    {
+      "description": "The 'Add posting' button is used in different contexts with varying visual styles. In the destination creation form, it's a blue button, while in the discussion section of a destination, it's a grey button. This inconsistency can make it harder for users to quickly identify and use the button.",
+      "recommendation": "Use a consistent visual style for the 'Add posting' button across all contexts. Choose a color and style that is easily recognizable and visually distinct from other elements on the page.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ],
+      "rank_justification": "Inconsistent visual styles for the 'Add posting' button can make it harder for users to quickly identify and use the button. Consistency in visual design is important for usability."
+    },
+    {
+      "description": "The \"Contributed by\" field on the destination creation page doesn't dynamically recognize or suggest new participants, forcing users to manually input names and potentially leading to errors or omissions. This creates unnecessary friction and a misleading representation of contributors.\n",
+      "recommendation": "Implement a participant selection list for the \"Contributed by\" field, dynamically populated with all event participants, or remove the field entirely if its purpose is unclear.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall",
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "The 'Contributed by' field's lack of dynamic recognition or suggestion of participants creates unnecessary friction and potential errors. A participant selection list or removal of the field would improve usability."
+    },
+    {
+      "description": "The \"Name1, Name2, Name3, etc.\" placeholder text in the \"Add selected participants\" field is not user-friendly. It's unclear if the user should replace the entire text or add names to it.",
+      "recommendation": "Replace the placeholder text with a more intuitive instruction, such as \"Enter participant names separated by commas\" or use a tag-based input field for adding participants.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "Unclear placeholder text in the 'Add selected participants' field can confuse users about how to enter participant names. A more intuitive instruction or tag-based input field would improve clarity."
+    },
+    {
+      "description": "The \"Link\" field on the \"Destinations: Create entry\" page defaults to \"http://\", which is unnecessary and clutters the interface. Most users will likely paste a full URL, making the default prefix redundant.",
+      "recommendation": "Remove the default \"http://\" prefix from the \"Link\" field to simplify the interface and reduce visual clutter.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "The default 'http://' prefix in the 'Link' field is unnecessary and clutters the interface. Removing it simplifies the interface and reduces visual clutter."
+    },
+    {
+      "description": "The discussion section on the destination pages has a lot of empty space and the input fields are not well aligned, making it look cluttered and less appealing.",
+      "recommendation": "Improve the layout of the discussion section by reducing empty space, aligning input fields properly, and using a more visually appealing design for the discussion entries.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ],
+      "rank_justification": "The cluttered layout of the discussion section with empty space and misaligned input fields makes it less appealing. Improving the layout enhances the user experience."
+    },
+    {
+      "description": "The interface lacks keyboard shortcuts for common actions like adding a new destination or posting a comment. This slows down experienced users who prefer keyboard navigation.",
+      "recommendation": "Implement keyboard shortcuts for frequently used actions, such as Ctrl+Enter to submit a comment or Alt+N to add a new destination. Display these shortcuts in tooltips or a help menu.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use"
+      ],
+      "rank_justification": "Lack of keyboard shortcuts is a minor usability issue that primarily affects experienced users. Implementing shortcuts can improve efficiency for those who prefer keyboard navigation."
+    },
+    {
+      "description": "There is no quick way to copy and paste information between destination entries or discussion posts. Users have to manually retype or use the browser's copy-paste functionality, which can be cumbersome.",
+      "recommendation": "Add a \"copy\" button to destination entries and discussion posts, allowing users to easily duplicate content. This would be especially useful for copying descriptions or arguments between different destinations.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use"
+      ],
+      "rank_justification": "Lack of a quick way to copy and paste information is a minor inconvenience. Adding a 'copy' button can improve efficiency for users who need to duplicate content."
+    },
+    {
+      "description": "The process of adding a new destination requires scrolling through multiple fields (title, description, link, dates, etc.) even if some are not relevant. This adds unnecessary steps for users who only want to provide basic information.",
+      "recommendation": "Implement a \"quick add\" option that only displays the essential fields (title, description). Advanced options like link and dates can be hidden behind an \"advanced settings\" toggle.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use"
+      ],
+      "rank_justification": "Requiring users to scroll through multiple fields when adding a new destination, even if some are not relevant, adds unnecessary steps. A 'quick add' option can streamline the process for users who only want to provide basic information."
+    }
+  ]
+}

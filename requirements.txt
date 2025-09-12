@@ -1,0 +1,8 @@
+jupyter
+pandas
+numpy
+google-genai
+google-api-python-client
+google-generativeai
+opencv-python
+sentence-transformers

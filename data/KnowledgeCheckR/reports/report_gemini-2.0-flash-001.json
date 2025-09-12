@@ -1,0 +1,535 @@
+{
+  "KCR_P1_T1": [
+    {
+      "description": "Following registration, users are immediately directed to a login page without clear indication of required email confirmation or pre-population of the email address, leading to confusion, unnecessary re-entry of information, and misleading error messages upon failed login attempts. This creates a frustrating and inefficient onboarding experience.\n",
+      "recommendation": "After registration, redirect users to a dedicated confirmation page that clearly instructs them to check their email to verify their account, pre-populates the login page email field with their registered email, and provides a clear error message on the login page if an unverified account attempts to log in, including a link to resend the verification email.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards",
+        "Error Prevention",
+        "Recognition Rather than Recall",
+        "Aesthetic and Minimalist Design",
+        "Visibility of System Status",
+        "Help and Documentation"
+      ]
+    },
+    {
+      "description": "The generic error message for incorrect login credentials fails to provide specific feedback on whether the email or password was incorrect, hindering users' ability to troubleshoot login issues. Furthermore, clearing the email field after a failed login attempt and lacking a direct password reset link from the error message adds unnecessary friction to the login recovery process.\n",
+      "recommendation": "Enhance the login error handling by providing specific error messages (e.g., \"Incorrect email address\" or \"Incorrect password\"), retaining the entered email address in the email field after a failed attempt, and including a \"Forgot Password?\" link directly below the error message.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors",
+        "Visibility of System Status",
+        "User Control and Freedom",
+        "Help and Documentation"
+      ]
+    },
+    {
+      "description": "The term \"CheckR App\" is used throughout the interface, but it's unclear what a \"CheckR App\" is in the context of the platform. This might confuse new users who are unfamiliar with the platform's terminology.",
+      "recommendation": "Replace \"CheckR App\" with more descriptive terms like \"Knowledge Check\" or \"Quiz\" to align with common user understanding. Provide a brief explanation of what a CheckR App is on the landing page or in a help section.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ]
+    },
+    {
+      "description": "The login page initially displays a 'Continue' button after entering the email, but then changes to a 'Login' button after the email is entered. This inconsistency in button labels can be confusing.",
+      "recommendation": "Use a consistent button label, such as 'Login', throughout the login process after the email is entered.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ]
+    },
+    {
+      "description": "The login form does not provide real-time feedback on password strength or any input validation before submission. This can lead to users submitting weak passwords or making simple errors that are only caught after submission, resulting in a frustrating experience.",
+      "recommendation": "Implement real-time password strength validation and display it to the user as they type. Also, provide immediate feedback for any input errors (e.g., incorrect email format) before the user submits the form.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention"
+      ]
+    }
+  ],
+  "KCR_P1_T2": [
+    {
+      "description": "When creating a new CheckR app, there is no immediate feedback after clicking the \"Create CheckR App\" button. The user might wonder if the action was successful or if the system is processing the request.",
+      "recommendation": "Implement a loading indicator or a brief success message (e.g., a toast notification) immediately after the \"Create CheckR App\" button is clicked to confirm that the app creation process has started. This provides immediate feedback to the user.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ]
+    },
+    {
+      "description": "When adding a new category, there is no visual feedback that the category has been successfully added until the page reloads or the user scrolls up to see the updated category list.",
+      "recommendation": "Provide immediate visual feedback when a new category is added, such as a temporary highlight or a confirmation message near the \"Add Category\" button. This will assure the user that the category has been added successfully.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ]
+    },
+    {
+      "description": "When setting deadlines for the app or a category, the calendar popup does not clearly indicate that the deadline has been set until the popup is closed. The user has to manually check the date field to confirm.",
+      "recommendation": "After setting a deadline, display a confirmation message within the calendar popup itself, such as \"Deadline set to [date]\" before the user closes it. This provides immediate confirmation of the action.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ]
+    },
+    {
+      "description": "The term \"CheckR App\" might not be immediately clear to all users. While it's the name of the platform, it doesn't intuitively convey what the user is creating (e.g., a quiz, assessment, or knowledge check).",
+      "recommendation": "Consider using more common terms like \"Quiz,\" \"Assessment,\" or \"Knowledge Check\" in the interface. For example, change \"Create CheckR App\" to \"Create Quiz\" or \"Create Knowledge Check.\"",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ]
+    },
+    {
+      "description": "Inconsistent terminology and date formats across the application create ambiguity and increase the cognitive load for users when interpreting and managing deadlines, potentially leading to errors and frustration.\n",
+      "recommendation": "Standardize all date formats to 'dd.mm.yyyy' and clearly label each deadline with its specific purpose (e.g., \"App Deadline,\" \"Content Deadline\").\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World",
+        "Consistency and Standards"
+      ]
+    },
+    {
+      "description": "The term \"Universal\" as a category might not be descriptive enough. Users might not understand what types of questions or content fall under this category.",
+      "recommendation": "Provide a more descriptive name for the \"Universal\" category, such as \"General Knowledge\" or \"Basic Concepts,\" or allow the user to rename it to something more relevant to their content.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ]
+    },
+    {
+      "description": "Users are frustrated by the inability to delete the pre-defined 'Universal' category in CheckR Apps, hindering their ability to fully customize and streamline their category organization. The misleading interface, which allows attempted deletion followed by an error message, further exacerbates this lack of control and creates a poor user experience.\n",
+      "recommendation": "Make the 'Universal' category either deletable/renameable without breaking core functionality, or clearly explain its non-deletable status and offer alternative default category options.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use",
+        "Error Prevention",
+        "User Control and Freedom"
+      ]
+    },
+    {
+      "description": "Users are frustrated by the AI question generation feature being presented as an option despite their lack of authorization, leading to unexpected error messages and a confusing experience due to the lack of guidance on how to gain access. This creates a barrier to a potentially time-saving tool.\n",
+      "recommendation": "Clearly communicate the authorization requirement for AI features by either disabling the 'Generate Questions and Answers with AI' button with a tooltip explaining how to gain access, or by providing a direct link/instructions within the error message displayed upon unauthorized use. Consider automatically enabling AI features during a trial period to showcase their value.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors",
+        "Flexibility and Efficiency of Use",
+        "Error Prevention",
+        "User Control and Freedom"
+      ]
+    },
+    {
+      "description": "Users are frustrated by the inconsistent and unexplained default category of 'Universal (Disabled)' when adding new questions, forcing them to repeatedly change the category and recall how to do so, hindering efficient question creation.\n",
+      "recommendation": "Streamline question creation by defaulting the question category to the knowledge check's category and providing clear, in-line guidance on category selection, including enabling the 'Universal' category or explaining why it's disabled and how to enable it.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards",
+        "Recognition Rather than Recall"
+      ]
+    },
+    {
+      "description": "When creating multiple-choice questions, it's possible to set the 'Minimal correct answers' slider to a value that is impossible given the number of answers provided. For example, setting it to 2/2 when only one answer is provided.",
+      "recommendation": "Implement input validation to ensure that the 'Minimal correct answers' slider cannot be set to a value that exceeds the number of available answers. Provide a real-time error message if the user attempts to set an invalid value.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention"
+      ]
+    },
+    {
+      "description": "The platform does not provide a clear visual indication of required fields during the knowledge check creation process. Users must remember which fields are mandatory, leading to potential errors and frustration.",
+      "recommendation": "Implement visual cues, such as asterisks (*) or highlighted borders, to clearly indicate which fields are required before submission. This will reduce the cognitive load on users and prevent incomplete submissions.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall"
+      ]
+    },
+    {
+      "description": "The text editor toolbar in the question and answer sections contains many options that are not commonly used, cluttering the interface. This can overwhelm users and make it harder to find the essential formatting tools.",
+      "recommendation": "Simplify the text editor toolbar by including only the most frequently used formatting options (e.g., bold, italics, underline, bullet points). Provide an \"Advanced\" button to reveal additional, less common options if needed.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ]
+    },
+    {
+      "description": "The question creation form includes several fields (e.g., Universal, Important to know, Question Points) that may not be relevant for all users or question types, adding unnecessary complexity to the interface.",
+      "recommendation": "Make these fields optional or hide them by default, providing a \"Show Advanced Options\" toggle to reveal them only when needed. This reduces visual clutter and simplifies the form for most users.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ]
+    },
+    {
+      "description": "When attempting to delete the 'Universal' category, the system displays a message 'Category cannot be deleted'. This message is not very helpful because it doesn't explain why the category cannot be deleted or suggest an alternative action.",
+      "recommendation": "The error message should be more descriptive, explaining that the 'Universal' category is a default category and cannot be deleted. Suggest deactivating the category instead, if that's a viable alternative.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors"
+      ]
+    },
+    {
+      "description": "There is no readily available help or documentation within the app creation interface to guide users on how to effectively use the various features or understand the purpose of each field. This could be confusing for new users.",
+      "recommendation": "Add tooltips or a help icon next to each field or section that provides a brief explanation of its purpose and how to use it. Include a link to a comprehensive documentation page or a tutorial video.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help and Documentation"
+      ]
+    }
+  ],
+  "KCR_P1_T3": [
+    {
+      "description": "Users struggle with the 'Text-Segments' question type due to the lack of clarity regarding segment limits and the inefficient, repetitive process of manually adding each segment, leading to frustration and wasted time.\n",
+      "recommendation": "Provide a clear visual indication of the maximum segment limit for the 'Text-Segments' question type, and allow users to add multiple segments simultaneously via a text area input that automatically parses line breaks into individual segments.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use",
+        "Visibility of System Status"
+      ]
+    },
+    {
+      "description": "When dragging and dropping segments to define the desired order, there is no visual feedback to indicate where the segment will be placed until the user releases the mouse button. This can lead to inaccurate placement and require the user to readjust the order.",
+      "recommendation": "Provide a visual indicator, such as a highlighted line or a ghosted segment, to show the exact position where the segment will be placed during the drag-and-drop operation.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ]
+    },
+    {
+      "description": "After saving the question, the system displays a generic \"Your changes have been saved successfully\" message. This message doesn't provide specific feedback about which question was saved or any other relevant details.",
+      "recommendation": "Include the question title or a brief summary of the changes made in the success message to provide more specific feedback to the user.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ]
+    },
+    {
+      "description": "The term 'cloze' used in the 'My Cloze Text' question type might not be immediately understandable to all users, especially those unfamiliar with educational terminology. This could cause confusion when creating questions.",
+      "recommendation": "Replace 'cloze' with a more common term like 'fill-in-the-blank' or 'gap-fill' and provide a brief explanation of what this question type entails. Alternatively, include a tooltip or help text that defines 'cloze' in a user-friendly manner.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ]
+    },
+    {
+      "description": "The instruction 'Insert cloze here. Then select the desired fields and respectively click on \"Insert field [[...]]\".' is not clear. The term 'respectively' is not used correctly and the instruction is not clear on how to insert the fields.",
+      "recommendation": "Rewrite the instruction to be more clear and concise. For example: 'Select the text you want to turn into a blank and click the \"Insert field\" button to create a fill-in-the-blank space.'",
+      "severity": "Major Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ]
+    },
+    {
+      "description": "Users lack sufficient error recovery options when creating 'Text-Segments' questions, leading to potential data loss and a frustrating experience due to the absence of undo, reset, or confirmation features for segment creation and deletion. This makes correcting mistakes and managing segments unnecessarily time-consuming and prone to errors.\n",
+      "recommendation": "Enhance segment creation with robust error recovery by adding undo/cancel functionality and deletion safeguards: Implement undo buttons for individual segment creation steps and a 'Cancel' button to discard the entire segment; provide a confirmation dialog before segment deletion, or alternatively, an immediate 'Undo Delete' option; and include a 'Clear All Segments' button with a confirmation dialog to reset the question creation process.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention",
+        "User Control and Freedom"
+      ]
+    },
+    {
+      "description": "The inconsistent placement and unclear visual hierarchy of the 'Add Segment' button within a cluttered interface makes it difficult for users to efficiently and confidently add and manage segments. This lack of visual clarity hinders discoverability and increases cognitive load.\n",
+      "recommendation": "Consistently position a visually prominent 'Add Segment' button (e.g., brighter color, distinct icon, increased contrast) below the last segment in the list, ensuring it's clearly distinct from any surrounding elements.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards",
+        "Aesthetic and Minimalist Design"
+      ]
+    },
+    {
+      "description": "The unclear visual affordance and lack of feedback in the segment arrangement drag-and-drop interface make it difficult for users to understand how to interact with and precisely position segments, leading to confusion and potential errors.\n",
+      "recommendation": "Improve drag-and-drop usability by adding a clearly labeled and visually distinct drop area with placeholder text, and provide real-time visual feedback (highlighted drop zones, guidelines, and confirmation) during and after dragging.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards",
+        "Flexibility and Efficiency of Use"
+      ]
+    },
+    {
+      "description": "The interface allows adding segments without any content. This can lead to confusion and unnecessary empty segments in the question.",
+      "recommendation": "Disable the 'Add Segment' button or display a warning message if the user attempts to add a segment without entering any text. Alternatively, automatically remove empty segments upon saving the question.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention"
+      ]
+    },
+    {
+      "description": "When creating a 'Text-Segments' question, the interface requires users to remember the purpose of each segment field (e.g., 'Task', 'Example', 'Now summarize'). There are no clear labels or tooltips to remind users of the intended content for each segment, increasing cognitive load.",
+      "recommendation": "Add descriptive labels or tooltips to each segment field, explaining its purpose and providing examples of the type of content that should be entered. This will reduce the need for users to recall the intended use of each segment.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall"
+      ]
+    },
+    {
+      "description": "The interface does not provide a preview of the final question format while creating the 'Text-Segments' question. Users must remember how the segments will be presented to the learners, making it difficult to ensure the question is clear and effective.",
+      "recommendation": "Implement a real-time preview feature that displays how the 'Text-Segments' question will appear to learners as the segments are being created and arranged. This will allow users to immediately see the impact of their changes and make necessary adjustments.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall"
+      ]
+    },
+    {
+      "description": "The prominent and easily mis-clicked \"remove\" icons for text segments create a risk of accidental deletions due to their visual emphasis and lack of clear affordance, hindering efficient and error-free segment management.\n",
+      "recommendation": "Make the 'X' icon for segment removal larger, less visually prominent by default (e.g., lighter shade of red), and include a \"Remove Segment\" tooltip that appears on hover.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors",
+        "Aesthetic and Minimalist Design"
+      ]
+    },
+    {
+      "description": "When creating a 'Text-Segments' question, the interface lacks clear guidance on how to define the correct order of segments. While the 'Create segments and define the desired order' section is present, it doesn't explicitly explain how the system will validate the user's arrangement or provide visual cues for the correct sequence.",
+      "recommendation": "Add a tooltip or a brief instruction text near the 'Create segments and define the desired order' section explaining that the order in which the segments are created is considered the correct order. Also, consider adding a 'Preview' button to allow the teacher to see how the question will appear to the student and verify the segment order.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help and Documentation"
+      ]
+    }
+  ],
+  "KCR_P1_T4": [
+    {
+      "description": "Users struggle with the \"Allow anonymous access\" setting due to its initial hidden state, lack of immediate feedback upon changes, and absence of confirmation mechanisms, leading to potential confusion, accidental enabling, and inefficient feature discovery. This negatively impacts user confidence and potentially compromises data privacy or learning objectives.\n",
+      "recommendation": "Improve the \"Allow anonymous access\" setting by: **Making it more discoverable with a clear, contextual explanation near the toggle, and providing immediate visual feedback (loading/confirmation messages) upon interaction, coupled with a confirmation dialog explaining the implications when enabling the setting.**\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention",
+        "Flexibility and Efficiency of Use",
+        "Recognition Rather than Recall",
+        "Visibility of System Status",
+        "User Control and Freedom"
+      ]
+    },
+    {
+      "description": "The ambiguous label \"Allow anonymous access\" fails to clearly communicate the implications of enabling the feature, particularly regarding data privacy and the absence of user identification. This lack of clarity prevents users from making informed decisions about access settings.\n",
+      "recommendation": "Replace the \"Allow anonymous access\" toggle label with \"Enable guest access\" and add a tooltip explaining that enabling this setting allows participation without login and describes the implications for participants and data collection.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World",
+        "Consistency and Standards",
+        "Help and Documentation"
+      ]
+    },
+    {
+      "description": "The settings page contains many options, some of which might not be relevant for all users. This can lead to cognitive overload and make it difficult for the user to find the specific setting they are looking for.",
+      "recommendation": "Consider grouping related settings into collapsible sections or using a tabbed interface to reduce the amount of information displayed at once. Provide clear labels and descriptions for each setting to help users understand their purpose.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ]
+    }
+  ],
+  "KCR_P2_T1": [
+    {
+      "description": "Users are confused and frustrated by an unexpected and seemingly unnecessary login prompt after entering a quiz key, interrupting their flow and creating friction. The initial key entry field also lacks clear labeling, further contributing to a disjointed and confusing user experience.\n",
+      "recommendation": "Upon entering a valid access key, immediately redirect the user to the quiz, replacing the modal with a non-intrusive notification (e.g., a banner) suggesting login/registration for enhanced features, and update the access key input field placeholder text to \"Enter Access Key\".\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World",
+        "Flexibility and Efficiency of Use",
+        "Visibility of System Status",
+        "Aesthetic and Minimalist Design"
+      ]
+    },
+    {
+      "description": "The button text \"+ CheckR App\" is confusing. It's unclear what this button does or why it's relevant to accessing a quiz.",
+      "recommendation": "Change the button text to something more descriptive, such as \"Download CheckR App\" or remove the button if it's not essential for accessing the quiz.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ]
+    },
+    {
+      "description": "Users encounter a confusing and unhelpful initial popup due to unfamiliar terminology and a lack of context or guidance, hindering their ability to understand the purpose of the prompt engineering resource and make informed decisions about logging in.\n",
+      "recommendation": "Revise the quiz access popup to use clear, common language for button options (e.g., \"Access the Quiz\" and \"Continue as Guest\") and include a brief, benefit-driven explanation of logging in (e.g., \"Log in to save your progress and track your results\" or a link to a help page).\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World",
+        "Help and Documentation"
+      ]
+    },
+    {
+      "description": "The initial popup after entering the key and clicking 'Go' presents options to 'Login' or 'Knowledge-Check'. The 'Cancel' button is not prominent and might be overlooked by users who simply want to proceed without logging in. This could lead to confusion or accidental login attempts.",
+      "recommendation": "Make the 'Knowledge-Check' button more prominent and visually distinct from the 'Login' button. Consider renaming it to 'Continue as Guest' or 'Proceed without Login' for clarity. Also, ensure the 'Cancel' button is clearly visible and easily accessible.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "User Control and Freedom"
+      ]
+    },
+    {
+      "description": "The initial page uses the term \"Enter key & Go!\" to access the quiz, but the subsequent pop-up uses the term \"Knowledge-Check\" to achieve the same action. This inconsistency in terminology can be confusing for users.",
+      "recommendation": "Use consistent terminology throughout the application. Change \"Knowledge-Check\" in the pop-up to \"Enter key & Go!\" or a similar phrase that aligns with the initial page's wording.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ]
+    },
+    {
+      "description": "The system prompts the user to log in to access all features, but also provides an option to continue without logging in. This is good, but the warning that progress will not be saved without logging in could be more prominent. Users might miss this warning and later be frustrated when their progress is lost.",
+      "recommendation": "Make the warning about progress not being saved more visually prominent, perhaps by using a different color or a larger font size. Consider adding a confirmation dialog before allowing the user to proceed without logging in, explicitly asking if they understand that their progress will not be saved.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention"
+      ]
+    },
+    {
+      "description": "The initial landing page requires the user to enter a key without providing immediate context on where to obtain this key or what it represents. This forces the user to recall or seek external information.",
+      "recommendation": "Provide a brief explanation next to the \"Enter key & Go!\" field, such as \"Enter the access key provided by your instructor/organization.\" This will provide immediate context and reduce the cognitive load on the user.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall"
+      ]
+    },
+    {
+      "description": "The initial landing page contains a lot of text describing the platform's features, which might overwhelm new users who just want to take a quick quiz. The long paragraph about CheckR's features is not essential for a user trying to access a quiz with a key.",
+      "recommendation": "Simplify the landing page by moving the detailed description to an 'About' section or a separate page. Focus the main page on the key entry and quiz access.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ]
+    },
+    {
+      "description": "The error message \"Login now to get access to all features of KnowledgeCheckR. Alternatively, you can continue without login. Warning: no progress will be saved without login. There is also no way to return to your progress at a later time.\" is not an error message, but a warning. It doesn't help the user recover from an error, but rather warns them about the consequences of not logging in.",
+      "recommendation": "Rephrase the message to be more informative and less alarming. For example, \"You are about to start the quiz without logging in. Your progress will not be saved. Do you want to continue?\" Provide options to log in, register, or continue without logging in.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors"
+      ]
+    },
+    {
+      "description": "The initial landing page lacks clear guidance on how to use the access key. While there's a field to enter it, there's no explicit instruction on what the key is for or where to obtain it. This could confuse new users.",
+      "recommendation": "Add a brief explanation near the \"Enter key & Go!\" field, such as \"Enter your access key to start a quiz\" or \"If you have an access key, enter it here\". Consider adding a link to a FAQ or help section for more detailed instructions.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help and Documentation"
+      ]
+    }
+  ],
+  "KCR_P2_T2": [
+    {
+      "description": "Users struggle to understand why their answers are incorrect in question 2 due to a lack of clear feedback on their initial selections and insufficient explanation of the reasoning behind the correct answers, leading to a frustrating and potentially ineffective learning experience. The visual presentation of correct/incorrect answers is also overly intense and distracting.\n",
+      "recommendation": "Provide immediate, visually clear, and informative feedback on answer selection using subtle green/red color-coding to indicate correctness, highlighting user selections to show which were right/wrong, and offering concise explanations for incorrect choices.\n",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help Recognize, Diagnose, Recover from Errors",
+        "Error Prevention",
+        "Visibility of System Status",
+        "Aesthetic and Minimalist Design"
+      ]
+    },
+    {
+      "description": "The loading animation after submitting an answer is a simple spinning circle. It doesn't clearly communicate that the system is processing the answer and providing feedback.",
+      "recommendation": "Replace the simple spinning circle with a more informative loading animation or message, such as \"Checking your answer...\" or \"Processing feedback...\". This will provide a clearer indication of the system's status.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Visibility of System Status"
+      ]
+    },
+    {
+      "description": "The term \"LLMs\" might not be immediately clear to all users, especially those new to the field of prompt engineering. While it's common in the AI community, it's jargon that could confuse some learners.",
+      "recommendation": "Provide a brief explanation of what \"LLMs\" stands for (Large Language Models) either in the title or in the introductory text. Alternatively, use the full term \"Large Language Models\" instead of the abbreviation.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ]
+    },
+    {
+      "description": "The quiz uses terms like \"zero-shot, few-shot, and chain-of-thought prompting\" without providing immediate context or definitions. Users unfamiliar with these concepts might struggle to understand the quiz's purpose and questions.",
+      "recommendation": "Include brief definitions or explanations of \"zero-shot, few-shot, and chain-of-thought prompting\" in the introductory text or as tooltips that appear when hovering over these terms. This will help users understand the context of the quiz.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Match between System and Real World"
+      ]
+    },
+    {
+      "description": "In question 2, once an answer is submitted, there is no way to go back and change the answer. This violates the user's control and freedom to correct mistakes or reconsider their responses.",
+      "recommendation": "Implement a 'Previous' button or allow users to revisit and modify their answers before finalizing the entire quiz. This would give users more control over their progress and reduce frustration.",
+      "severity": "Major Issue",
+      "heuristics": [
+        "User Control and Freedom"
+      ]
+    },
+    {
+      "description": "The 'Next' button changes color and shape between questions. After answering the first question, the button is a grey circle with the word 'Next'. After answering the second question, the button is a red circle with the word 'Next'.",
+      "recommendation": "Maintain a consistent button style (color, shape, and text) for the 'Next' button throughout the quiz to avoid user confusion. Choose a single, clear visual style and stick to it.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ]
+    },
+    {
+      "description": "The feedback messages after submitting an answer are inconsistent. For the first question, the feedback is 'Congratulations! You answered the question correctly.' For the second question, the feedback is 'The given answers are not correct.' followed by 'Correct Answer is:'.",
+      "recommendation": "Standardize the feedback messages to provide a consistent user experience. Use a consistent tone and format for both correct and incorrect answers. For example, always include a 'Correct Answer is:' section, even for correct answers.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Consistency and Standards"
+      ]
+    },
+    {
+      "description": "In question 3, the user can drag and drop the prompt parts in any order without any guidance on the correct sequence. This could lead to frustration and incorrect submissions.",
+      "recommendation": "Provide visual cues or hints to guide the user in arranging the prompt parts in the correct order. For example, use numbering or color-coding to indicate the expected sequence.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Error Prevention"
+      ]
+    },
+    {
+      "description": "In the third question, the user has to arrange the prompt parts to effectively apply few-shot prompting for writing event summaries. The user has to remember the order of the prompt parts to answer the question correctly. The user should be able to see the correct order of the prompt parts to answer the question correctly.",
+      "recommendation": "Provide a hint or example of the correct order of the prompt parts to help the user answer the question correctly. The user should be able to see the correct order of the prompt parts to answer the question correctly.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Recognition Rather than Recall"
+      ]
+    },
+    {
+      "description": "There is no option to quickly navigate between questions. Users must click 'Next' or 'Back' buttons to move between questions, which can be inefficient, especially if they want to review or change answers on previous questions.",
+      "recommendation": "Implement a question navigation panel or a dropdown menu that allows users to directly jump to any question in the quiz. This would significantly improve the efficiency of use for experienced users who want to quickly review or modify their answers.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use"
+      ]
+    },
+    {
+      "description": "The drag-and-drop interface for the third question lacks clear visual cues for successful placement. It's not immediately obvious that the items have been correctly arranged within the designated area.",
+      "recommendation": "Provide a clear visual confirmation when an item is successfully placed in the drag-and-drop area, such as a change in border color or a checkmark icon. This will improve the user's confidence and efficiency in completing the task.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Flexibility and Efficiency of Use"
+      ]
+    },
+    {
+      "description": "The large purple banner with the \"Mastering Prompt Engineering for LLMs\" graphic takes up a significant portion of the screen, especially on smaller displays. It doesn't add much value during the quiz itself and distracts from the questions.",
+      "recommendation": "Consider minimizing the banner during the quiz or moving it to a less prominent location, such as the top right corner. Alternatively, collapse the banner into a smaller icon that can be expanded if the user wants to see it.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ]
+    },
+    {
+      "description": "The progress bar is quite large and visually prominent. While it's useful to show progress, its size could be reduced to make it less distracting.",
+      "recommendation": "Reduce the height of the progress bar and use a more subtle color. The progress information is important, but it doesn't need to dominate the screen.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Aesthetic and Minimalist Design"
+      ]
+    },
+    {
+      "description": "The \"i\" icon next to the title \"Mastering Prompt Engineering for LLMs\" opens a popup with a brief description of the quiz. While this is helpful, it doesn't provide comprehensive help or documentation on prompt engineering concepts or how to best approach the quiz questions.",
+      "recommendation": "Link the \"i\" icon to a more detailed help page or documentation that explains the concepts being tested in the quiz, such as zero-shot, few-shot, and chain-of-thought prompting. This could include examples and best practices.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help and Documentation"
+      ]
+    },
+    {
+      "description": "The platform provides feedback after each question, including the correct answer if the user answers incorrectly. However, it doesn't explain *why* the correct answer is correct, which limits the learning opportunity.",
+      "recommendation": "When providing feedback on incorrect answers, include a brief explanation of why the correct answer is the right choice. This will help users understand the underlying concepts and improve their knowledge.",
+      "severity": "Minor Issue",
+      "heuristics": [
+        "Help and Documentation"
+      ]
+    }
+  ]
+}
