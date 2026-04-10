@@ -1,6 +1,6 @@
 # Recommending Usability Improvements with Multimodal Large Language Models
 
-This repository contains the replication package for the paper: *Recommending Usability Improvements with Multimodal Large Language Models*, submitted to FSE 2026.
+This repository contains the replication package for the paper: *Recommending Usability Improvements with Multimodal Large Language Models*, accepted to FSE 2026.
 
 ## Abstract
 *Usability* describes quality attributes of application *user interfaces* that determine how effectively users can interact with them. Traditional usability evaluation methods require considerable expertise and resources, which can be challenging, especially for small teams and organizations. Automating usability evaluation could make it more accessible and help to improve the user experience.
@@ -23,8 +23,9 @@ The repository is organized as follows:
     - `teacher/`: Screen recordings of a teacher persona performing tasks.
     - `reports/`: JSON files with the MLLM's analysis for KnowledgeCheckR.
     - `task_description.json`: Descriptions of the user tasks for KnowledgeCheckR.
-- `evaluation/`: Contains the Jupyter notebook for usability evaluation.
-  - `LLM_Usability_Evaluation.ipynb`: The main notebook for reproducing our usability evaluation.
+- `evaluation/`: Contains the Jupyter notebooks for usability evaluation.
+  - `Results_Review.ipynb`: A lightweight notebook to review the pre-generated usability reports of the study without an API key.
+  - `LLM_Usability_Evaluation.ipynb`: The main notebook for full replication of the evaluation pipeline (requires API key).
   - `nielsen_heuristics.json`: Nielsen's heuristics used in the evaluation.
 - `user_study/`: Contains materials and data from our user study.
   - `responses/`: Anonymized participant responses.
@@ -42,11 +43,11 @@ To set up the environment and run the code in this repository, please follow the
     cd recommending-usability-improvements-mllm
     ```
 
-2.  **Create and activate a Conda environment:**
+2.  **Create and activate a virtual environment:**
 
     ```bash
-    conda create --name usability-mllm python=3.9
-    conda activate usability-mllm
+    python -m venv venv
+    source venv/bin/activate
     ```
 
 3.  **Install the required dependencies:**
@@ -57,17 +58,13 @@ To set up the environment and run the code in this repository, please follow the
 
 ## How to run the Usability Evaluation 
 
-The main analysis is contained in the `LLM_Usability_Evaluation.ipynb` Jupyter Notebook located in the `evaluation/` directory.
+Please refer to [INSTALL.md](INSTALL.md) for detailed setup and usage instructions.
 
-1.  **Start Jupyter Notebook:**
+The main usability analysis and possibility to review pre-generated reports can be found in the Jupyter Notebook located in the `evaluation/` directory.
 
-    ```bash
-    jupyter notebook
-    ```
-
-2.  **Open and run the notebook:**
-
-    Navigate to `evaluation/LLM_Usability_Evaluation.ipynb` in the Jupyter interface and run the cells in the notebook to reproduce the analysis and results.
+### Summary of Replication Paths
+1.  **Results Review**: Use `Results_Review.ipynb` to browse the pre-generated reports without an API key.
+2.  **Full Replication**: Use `LLM_Usability_Evaluation.ipynb` for the full pipeline (requires API key for all evaluation steps).
 
 ## Data
 
