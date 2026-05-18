@@ -145,7 +145,7 @@ This structure allows for easy traceability between the responses, the tasks, an
 
 ## How to Cite
 
-If you want to cite this project, we suggest using the following reference:
+If you want to cite the research paper, we suggest using the following reference:
 ```
 @inproceedings{10.1145/3797121,
     author = {Lubos, Sebastian and Felfernig, Alexander and Garber, Damian and Le, Viet-Man and Henrich, Manuel},
@@ -159,5 +159,14 @@ If you want to cite this project, we suggest using the following reference:
     numpages = {22},
     keywords = {Usability Evaluation, Multimodal Large Language Models, Recommender Systems, Human-Computer Interaction, Usability Heuristics, Software Quality},
     location = {Montreal, Canada},
+}
+```
+
+To cite the replication package of the paper, we suggest using the following reference:
+```
+@software{Lubos_Recommending_Usability_Improvements,
+  author = {Lubos, Sebastian and Felfernig, Alexander and Garber, Damian and Le, Viet-Man and Henrich, Manuel},
+  title = {{Recommending Usability Improvements with Multimodal Large Language Models}},
+  url = {https://doi.org/10.5281/zenodo.19498008}
 }
 ```

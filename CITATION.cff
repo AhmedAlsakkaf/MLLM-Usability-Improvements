@@ -32,15 +32,13 @@ authors:
     family-names: Henrich
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.19498008
-    description: Paper artifacts released on Zenodo
-  - type: swh
-    value: 'swh:1:dir:efeb3c659e4c8301a405c52b147928b15d067e2e'
-  - type: doi
     value: 10.1145/3797121
     description: Research Paper FSE 2026
   - type: doi
     value: 10.48550/arXiv.2604.25420
-    description: Preprint
+    description: Paper preprint on arXiv
+  - type: doi
+    value: 10.5281/zenodo.19498008
+    description: Paper artifacts released on Zenodo
 repository-code: >-
   https://github.com/AIG-ist-tugraz/MLLM-Usability-Improvements/tree/artifacts_FSE2026
