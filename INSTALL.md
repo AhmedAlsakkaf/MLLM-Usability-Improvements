@@ -21,6 +21,11 @@ This document provides instructions for setting up the artifact environment and 
     pip install -r requirements.txt
     ```
 
+4.  **Integrate the virtual environment in Jupyter:**
+    ```bash
+    python -m ipykernel install --user --name=venv
+    ```
+
 ## 2. Basic Usage
 
 The artifact's functionality can be verified by reviewing the pre-generated reports. To rerun the evaluation steps and generate new results, a Google AI API key is required.

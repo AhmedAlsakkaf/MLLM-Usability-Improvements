@@ -1,0 +1,46 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Recommending Usability Improvements with Multimodal Large
+  Language Models
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Sebastian
+    family-names: Lubos
+    email: sebastian.lubos@tugraz.at
+    affiliation: Graz University of Technology
+    orcid: 'https://orcid.org/0000-0002-5024-3786'
+  - orcid: 'https://orcid.org/0000-0003-0108-3146'
+    affiliation: Graz University of Technology
+    given-names: Alexander
+    family-names: Felfernig
+  - affiliation: Graz University of Technology
+    given-names: Damian
+    family-names: Garber
+    orcid: 'https://orcid.org/0009-0005-0993-0911'
+  - affiliation: Graz University of Technology
+    given-names: Viet-Man
+    family-names: Le
+    orcid: 'https://orcid.org/0000-0001-5778-975X'
+  - orcid: 'https://orcid.org/0009-0007-4644-0836'
+    given-names: Manuel
+    family-names: Henrich
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.19498008
+    description: Paper artifacts released on Zenodo
+  - type: swh
+    value: 'swh:1:dir:efeb3c659e4c8301a405c52b147928b15d067e2e'
+  - type: doi
+    value: 10.1145/3797121
+    description: Research Paper FSE 2026
+  - type: doi
+    value: 10.48550/arXiv.2604.25420
+    description: Preprint
+repository-code: >-
+  https://github.com/AIG-ist-tugraz/MLLM-Usability-Improvements/tree/artifacts_FSE2026
