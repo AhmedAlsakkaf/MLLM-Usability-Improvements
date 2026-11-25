@@ -1,0 +1,7 @@
+[theme]
+base = "dark"
+primaryColor = "#aad5f5"
+linkColor = "#aad5f5"
+
+[browser]
+gatherUsageStats = false

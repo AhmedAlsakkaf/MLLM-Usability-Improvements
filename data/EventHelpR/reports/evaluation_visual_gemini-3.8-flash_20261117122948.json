@@ -1,0 +1,113 @@
+[
+  {
+    "heuristic": "Colour and Contrast",
+    "issues": [
+      {
+        "description": "In the event header banner (00:09.800–00:15.000), the 'Last modified' timestamp is displayed in a dark blue/grey font against the dark blue background (~#1D426E), making it almost illegible due to severely insufficient contrast.",
+        "recommendation": "Update the timestamp font colour to white (~#FFFFFF) or a light grey (~#E0E6ED) to ensure adequate contrast against the dark background.",
+        "severity": "Major Issue"
+      },
+      {
+        "description": "Under the 'Information' section (00:10.000–00:15.400), the event date text is rendered in light grey (~#9E9E9E) and the 'Export to calendar' link is in pale blue (~#7BA3CD) on a pure white background (~#FFFFFF), failing minimum readability and contrast requirements.",
+        "recommendation": "Darken the date text to a readable neutral dark grey (~#424242) and use a higher-contrast blue (~#1565C0) for the calendar export link to meet WCAG AA standards.",
+        "severity": "Minor Issue"
+      },
+      {
+        "description": "In the bottom footer bar (00:05.600 and 00:18.000), the attribution text and navigation links ('Imprint | Privacy policy | Feedback...') use muted grey text against a dark navy background (~#15293E), resulting in poor contrast.",
+        "recommendation": "Brighten the footer text and link colours to an accessible light grey or off-white (~#CBD5E1) to improve legibility.",
+        "severity": "Minor Issue"
+      }
+    ],
+    "id": "EHR_P2_T1_V1"
+  },
+  {
+    "heuristic": "Typography and Readability",
+    "issues": [
+      {
+        "description": "On the landing page (00:00.200 and 00:04.400), major headings like 'Create. Organize. Share.' and 'Makes the organization of events easier.' use a stylized geometric/pixelated font. This typeface clashes with the standard sans-serif body copy and reduces legibility at a glance.",
+        "recommendation": "Replace the decorative display typeface with a modern, high-legibility sans-serif heading font that harmonizes with the rest of the interface typography.",
+        "severity": "Minor Issue"
+      },
+      {
+        "description": "On the event details page (00:10.000–00:20.000), body descriptions, dates, table headers ('Title'), and destination ratings/vote counts within the progress bars are rendered in very small font sizes (around 10–12px) with low-contrast gray text (#777777). This makes detailed information difficult to scan and read.",
+        "recommendation": "Increase base body and metadata font sizes to at least 14px, enlarge numeric indicators within vote bars to at least 12–13px, and increase text contrast against white and colored backgrounds using darker slate/charcoal tones (#222222 to #333333).",
+        "severity": "Minor Issue"
+      }
+    ],
+    "id": "EHR_P2_T1_V2"
+  },
+  {
+    "heuristic": "Layout and Visual Hierarchy",
+    "issues": [
+      {
+        "description": "On the landing page, the 'Enter your event key' input field is buried near the footer (visible around 00:06.000) below extensive marketing copy, feature explanations, and partner logos. A guest user attempting to join an existing event has to scroll through the entire page because the input lacks prominent placement in the hero section or top navigation.",
+        "recommendation": "Elevate the event key entry field to the primary hero area alongside the 'Create event' call-to-action or include a direct 'Join Event' link/input in the top navigation bar.",
+        "severity": "Major Issue"
+      },
+      {
+        "description": "The event page banner (dark blue #19385c at 00:10.000) occupies excessive vertical space relative to the sparse metadata it holds, pushing key functional content (such as voting options under 'Destinations') further down the viewport.",
+        "recommendation": "Reduce the vertical padding of the event header banner and align the title, dates, and participant count into a more compact, horizontal layout so users can see actionable content immediately without scrolling.",
+        "severity": "Minor Issue"
+      },
+      {
+        "description": "In the 'Overview (Participants)' section (00:16.000–00:20.000), participant names are displayed inside generic bordered input-like boxes with awkward whitespace and lack clear grouping or visual cues indicating status or participation details.",
+        "recommendation": "Format participants using standardized visual chips, badges, or an avatar list to distinguish them from editable form fields and maintain consistent grouping across the page.",
+        "severity": "Minor Issue"
+      }
+    ],
+    "id": "EHR_P2_T1_V3"
+  },
+  {
+    "heuristic": "Visual Consistency of Components",
+    "issues": [
+      {
+        "description": "Buttons throughout the application lack a unified visual language and hierarchy. The primary call-to-action '+ Create event' button at 00:01.200 uses an orange gradient (#e67e22) with rounded corners, while the event key submit button at 00:09.600 is a square grey box with a plain arrow. Furthermore, secondary actions like '+ Add entry' at 00:11.800 and 'Export list as PDF document' at 00:10.000 are styled inconsistently as raw text links with disparate icon pairings.",
+        "recommendation": "Establish a standardized design system for buttons with distinct primary, secondary, and tertiary/ghost variants, maintaining consistent border-radius, font styling, padding, and icon placement across all pages.",
+        "severity": "Minor Issue"
+      },
+      {
+        "description": "Iconography exhibits inconsistent visual weights, colors, and framing styles. Section headers (such as 'Description' and 'Information' at 00:10.000) use dark grey monochrome glyphs, destination entries use filled orange square badges (#e67e22), destination table actions use blue line glyphs (#2980b9), and the navigation bar uses thin outline icons.",
+        "recommendation": "Adopt a single cohesive icon library with uniform stroke weights, dimensions, and color rules. Avoid mixing framed badge icons with borderless glyphs for similar data-row contexts.",
+        "severity": "Minor Issue"
+      }
+    ],
+    "id": "EHR_P2_T1_V4"
+  },
+  {
+    "heuristic": "Motion and Transitions",
+    "issues": [
+      {
+        "description": "When clicking the submit arrow button at 00:09.400, the transition to the event view at 00:09.800 is an immediate hard cut without any visual feedback, transition animation, or intermediate loading state.",
+        "recommendation": "Provide visual feedback on the button upon click (such as a brief spinner or active state) and apply a subtle fade transition (150–250 ms) to ease the transition between the home view and the event details page.",
+        "severity": "Minor Issue"
+      },
+      {
+        "description": "Upon navigating to the event page between 00:09.800 and 00:11.400, destination entries and voting bars (green ~#4CAF50 and red ~#C62828) pop into view abruptly, causing noticeable visual popping rather than a smooth content load.",
+        "recommendation": "Use skeleton placeholders during data retrieval and apply a fast, staggered fade-in transition (150–300 ms) as destination items and progress bars finish rendering.",
+        "severity": "Minor Issue"
+      }
+    ],
+    "id": "EHR_P2_T1_V5"
+  },
+  {
+    "heuristic": "Interactive States and Affordance",
+    "issues": [
+      {
+        "description": "On the landing page (00:07.0–00:09.6), the submit button adjacent to the 'Enter your event key' input is rendered as a plain white box with a small arrow icon, lacking the visual affordance and hover feedback of a primary call-to-action button.",
+        "recommendation": "Style the submit control as a solid primary button (e.g., using the brand orange #f08300 or blue #2b547e) with distinct hover, active, and focus states.",
+        "severity": "Minor Issue"
+      },
+      {
+        "description": "In the 'Overview (Participants)' section (00:17.0–00:19.6), participant names ('John Doe', 'Alice') are displayed inside rectangular boxes with light grey borders (#cccccc) that look identical to editable text input fields, creating false affordance.",
+        "recommendation": "Display participants as user badges, tags, or avatar chips rather than input-style text boxes to prevent users from expecting editable text fields.",
+        "severity": "Minor Issue"
+      },
+      {
+        "description": "In the Destinations list (00:19.8–00:20.6), the comment counter icon and action icons (pencil, trash) offer minimal hover feedback or tooltips when moused over.",
+        "recommendation": "Add subtle background hover states (e.g., rounded light-grey highlights) and informative tooltips to reinforce the interactive affordance of table action icons.",
+        "severity": "Minor Issue"
+      }
+    ],
+    "id": "EHR_P2_T1_V6"
+  }
+]

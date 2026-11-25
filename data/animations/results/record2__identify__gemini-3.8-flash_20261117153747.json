@@ -1,0 +1,47 @@
+{
+  "video": "record2.mp4",
+  "model_name": "gemini-3.8-flash",
+  "fps": 10,
+  "model": {
+    "name": "sticky scroll slider",
+    "alternative_names": [
+      "pinned scroll showcase",
+      "scroll-driven project slider",
+      "split sticky gallery",
+      "parallax scroll"
+    ],
+    "primitive_effects": [
+      "move",
+      "fade"
+    ],
+    "purpose": "navigation or orientation between views",
+    "description": "As the user scrolls down the page, a split-screen section smoothly glides into place. The layout pairs visual cards/project images on one side with corresponding project metadata on the other, featuring an index counter (e.g., '1 / 5'), title, description, and link button that update or slide in sync with the user's scroll depth.",
+    "start_time_s": 1.8,
+    "duration_ms": 1000,
+    "easing": "ease-out",
+    "colours": [
+      "#F7BD33",
+      "#FFFFFF",
+      "#1D1D1B"
+    ],
+    "how_to_implement": "Best implemented using GSAP with the ScrollTrigger plugin (`pin: true`, `scrub: true`) or modern CSS `position: sticky` combined with an `IntersectionObserver` or scroll-timeline. As the container scrolls through the viewport, the layout stays pinned while slides, imagery, and the number counter trigger transitions based on scroll position.",
+    "code_example": "<div class=\"showcase-container\">\n  <div class=\"sticky-wrapper\">\n    <div class=\"image-column\">\n      <div class=\"card\" id=\"card-1\">\n        <img src=\"https://picsum.photos/600/750?random=1\" alt=\"Project 1\" />\n      </div>\n    </div>\n    <div class=\"content-column\">\n      <span class=\"counter\">1 / 5</span>\n      <h2>Project Title</h2>\n      <p>Short narrative and description of the selected project.</p>\n      <a href=\"#\" class=\"btn\">View Project &rarr;</a>\n    </div>\n  </div>\n</div>\n\n<style>\n  .showcase-container {\n    height: 300vh;\n    background: #f4c244;\n    position: relative;\n  }\n  .sticky-wrapper {\n    position: sticky;\n    top: 0;\n    height: 100vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 4rem;\n    padding: 0 5vw;\n  }\n  .image-column {\n    flex: 1;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .card {\n    width: 380px;\n    border-radius: 16px;\n    overflow: hidden;\n    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);\n  }\n  .card img {\n    width: 100%;\n    display: block;\n  }\n  .content-column {\n    flex: 1;\n    max-width: 420px;\n    color: #1a1a1a;\n  }\n  .counter {\n    font-family: monospace;\n    font-size: 0.9rem;\n    opacity: 0.7;\n  }\n  .btn {\n    display: inline-block;\n    margin-top: 1.5rem;\n    padding: 0.6rem 1.4rem;\n    border: 1px solid currentColor;\n    border-radius: 999px;\n    text-decoration: none;\n    color: inherit;\n  }\n</style>",
+    "confidence": "high"
+  },
+  "measured": [
+    {
+      "start": 0.067,
+      "end": 2.867,
+      "peak_area": 0.32,
+      "region": {
+        "x": 0.0,
+        "y": 0.03,
+        "w": 1.0,
+        "h": 0.96
+      },
+      "kind": "animated",
+      "duration": 2.8
+    }
+  ],
+  "kind": "identify"
+}

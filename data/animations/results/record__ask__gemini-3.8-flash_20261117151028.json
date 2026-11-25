@@ -1,0 +1,24 @@
+{
+  "video": "record.mp4",
+  "model_name": "gemini-3.8-flash",
+  "fps": 10,
+  "question": "What is the name of this transition, and how would I build it in CSS? Keep it short.",
+  "context": null,
+  "answer": "This effect is commonly known as a **Curtain Reveal** (or **Sticky Stacking / Sticky Reveal**). A section sticks in place within the viewport while the subsequent section slides up over it like a curtain covering it.\n\n### Minimal CSS Implementation\n\nYou can achieve this natively using `position: sticky`:\n\n```html\n<section class=\"section sticky-panel\">\n  <h1>Sticky / Revealed Section</h1>\n</section>\n\n<section class=\"section curtain-panel\">\n  <h2>Curtain Section (Scrolls Over)</h2>\n</section>\n```\n\n```css\n* {\n  box-sizing: border-box;\n  margin: 0;\n}\n\n.section {\n  min-height: 100vh;\n  padding: 4rem 2rem;\n}\n\n/* 1. Sticks to top as you scroll */\n.sticky-panel {\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  background-color: #8c8c8c;\n  color: #fff;\n}\n\n/* 2. Slides over the sticky section with higher stacking order */\n.curtain-panel {\n  position: relative;\n  z-index: 2;\n  background-color: #f7eed9;\n  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15); /* optional shadow edge */\n}\n```",
+  "measured": [
+    {
+      "start": 0.033,
+      "end": 2.433,
+      "peak_area": 0.725,
+      "region": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 1.0,
+        "h": 1.0
+      },
+      "kind": "animated",
+      "duration": 2.4
+    }
+  ],
+  "kind": "ask"
+}

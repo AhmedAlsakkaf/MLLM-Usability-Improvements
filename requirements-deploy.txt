@@ -1,0 +1,9 @@
+# Packages the web app needs on the server (no Jupyter).
+# opencv-python-headless avoids the desktop GUI libraries a server lacks.
+pandas
+numpy
+google-genai
+openai
+opencv-python-headless
+sentence-transformers
+streamlit

@@ -1,0 +1,48 @@
+{
+  "video": "record.mp4",
+  "model_name": "gemini-3.8-flash",
+  "fps": 10,
+  "model": {
+    "name": "parallax scroll",
+    "alternative_names": [
+      "scroll reveal",
+      "layered scrolling",
+      "overlapping scroll sections",
+      "sticky parallax reveal"
+    ],
+    "primitive_effects": [
+      "move",
+      "fade"
+    ],
+    "purpose": "navigation or orientation between views",
+    "description": "As the user scrolls down the page, layered content panels move at different visual depths, revealing subsequent sections beneath or sliding over prior ones. The initial yellow section with stat numbers and an image scrolls upward to unveil a monochrome portrait section, followed by content cards sliding into view.",
+    "start_time_s": 0.03,
+    "duration_ms": 2400,
+    "easing": "linear",
+    "colours": [
+      "#F5BD19",
+      "#F2EDE4",
+      "#1D1D1B",
+      "#FFFFFF"
+    ],
+    "how_to_implement": "Use GSAP ScrollTrigger to tie element transforms directly to the scrollbar position (`scrub: true`), or use modern CSS `position: sticky` with stacked layers and `@scroll-timeline` / `animation-timeline: scroll()` for native scroll-linked parallax animations.",
+    "code_example": "<style>\n  .panel {\n    min-height: 100vh;\n    position: sticky;\n    top: 0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 2rem;\n  }\n  .panel-1 { background: #f5bd19; z-index: 1; }\n  .panel-2 { background: #f2ede4; z-index: 2; box-shadow: 0 -10px 30px rgba(0,0,0,0.1); }\n  .content {\n    display: flex;\n    gap: 3rem;\n    align-items: center;\n  }\n  .stat { font-size: 5rem; font-weight: bold; }\n</style>\n\n<section class=\"panel panel-1\">\n  <div class=\"content\">\n    <img src=\"project.jpg\" alt=\"Project visual\" style=\"width: 250px; border-radius: 12px;\" />\n    <div>\n      <div class=\"stat\">100%</div>\n      <p>Key Project Metric</p>\n    </div>\n  </div>\n</section>\n<section class=\"panel panel-2\">\n  <div class=\"content\">\n    <h2>Next Project Case Study</h2>\n  </div>\n</section>",
+    "confidence": "high"
+  },
+  "measured": [
+    {
+      "start": 0.033,
+      "end": 2.433,
+      "peak_area": 0.725,
+      "region": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 1.0,
+        "h": 1.0
+      },
+      "kind": "animated",
+      "duration": 2.4
+    }
+  ],
+  "kind": "identify"
+}

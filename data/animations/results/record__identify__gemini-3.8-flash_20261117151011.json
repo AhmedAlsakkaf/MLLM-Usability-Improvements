@@ -1,0 +1,46 @@
+{
+  "video": "record.mp4",
+  "model_name": "gemini-3.8-flash",
+  "fps": 10,
+  "model": {
+    "name": "parallax scroll",
+    "alternative_names": [
+      "scroll-driven parallax",
+      "parallax effect",
+      "multi-layer scroll"
+    ],
+    "primitive_effects": [
+      "move"
+    ],
+    "purpose": "decorative",
+    "description": "As the user scrolls down the page, different layers move at distinct speeds relative to the viewport. The textual content ('Lipton's Story') scrolls upward at normal speed while the background/portrait image of Sir Thomas Lipton moves at a slower rate, creating depth before continuing to the subsequent content sections.",
+    "start_time_s": 0.3,
+    "duration_ms": 1500,
+    "easing": "ease-out",
+    "colours": [
+      "#FABE15",
+      "#F7F4E9",
+      "#222222",
+      "#FFFFFF"
+    ],
+    "how_to_implement": "Can be implemented natively with modern CSS scroll-driven animations (`animation-timeline: scroll()` / `view()`) or using GSAP ScrollTrigger to translate the portrait element (`transform: translateY(...)`) at a slower velocity than the document scroll.",
+    "code_example": "/* Modern CSS Scroll-Driven Parallax */\n@keyframes parallaxMove {\n  from { transform: translateY(15%); }\n  to { transform: translateY(-15%); }\n}\n\n.parallax-container {\n  position: relative;\n  overflow: hidden;\n}\n\n.parallax-media {\n  animation: parallaxMove linear both;\n  animation-timeline: view();\n  animation-range: entry 0% exit 100%;\n}",
+    "confidence": "high"
+  },
+  "measured": [
+    {
+      "start": 0.033,
+      "end": 2.433,
+      "peak_area": 0.725,
+      "region": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 1.0,
+        "h": 1.0
+      },
+      "kind": "animated",
+      "duration": 2.4
+    }
+  ],
+  "kind": "identify"
+}

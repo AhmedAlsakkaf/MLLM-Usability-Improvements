@@ -98,6 +98,30 @@ Users modifying the pipeline should be aware of the following configurable param
 *   **Prompts**: The system and user prompts within the notebook can be adjusted to refine how the model identifies and describes issues.
 *   **Embedding Model**: The `SentenceTransformer` model (default: `all-MiniLM-L6-v2`) used for semantic clustering can be changed to other models if needed.
 
+## Extensions (this fork)
+
+This fork extends the original replication package. The original notebooks and reports are unchanged.
+
+| File | Purpose |
+|---|---|
+| `evaluation/mllm_client.py` | One client for several providers. The model is selected by name; keys are read from `.env`. |
+| `evaluation/video_tools.py` | Measurements without a model: dominant colours, WCAG contrast, motion segments. |
+| `evaluation/visual_design_criteria.json` | Six visual design criteria (colour, typography, layout, consistency, motion, interactive states). |
+| `evaluation/animation_taxonomy.json` | Names, primitive effects and purposes used for animation identification. |
+| `evaluation/extended_pipeline.py` | Evaluation, aggregation, ranking and animation identification, usable from Python or the command line. |
+| `evaluation/Extended_Evaluation.ipynb` | Notebook that walks through all of the above. |
+
+**API key.** Copy `.env.example` to `.env` and set `GEMINI_API_KEY`. `.env` is git-ignored. Do not write keys into notebooks.
+
+**Switching the model.** Set `MLLM_MODEL` in `.env`, pass `--model` on the command line, or use `MLLMClient("<model name>")`. Names starting with `gemini` use the Gemini API with native video input. Other names go to an OpenAI-compatible endpoint (`OPENAI_API_KEY`, optional `OPENAI_BASE_URL` for OpenRouter or a local Ollama server); for these the video is sent as sampled frames.
+
+```bash
+cd evaluation
+python extended_pipeline.py measure   ../data/EventHelpR/participant/1_access_event/access_event.mp4   # no key needed
+python extended_pipeline.py evaluate  --data ../data/EventHelpR/ --criteria visual --task EHR_P2_T1
+python extended_pipeline.py animation my_clip.mp4 --fps 10
+```
+
 ## Data
 
 The `data/` and `user_study/` directories contain all the data used in this research, including screen recordings, survey data, and application-specific materials. Please refer to the paper for a detailed description of the data collection process.

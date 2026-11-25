@@ -1,0 +1,26 @@
+{
+   "V1":{
+      "name":"Colour and Contrast",
+      "explanation": "Is the colour palette coherent and used with clear meaning (e.g., one accent colour for primary actions, consistent colours for success, warning and error)? Do text and interactive elements contrast enough with their background to be read easily?"
+   },
+   "V2":{
+      "name":"Typography and Readability",
+      "explanation": "Are font sizes, weights and line lengths comfortable to read? Is there a clear and consistent type hierarchy between headings, body text and labels?"
+   },
+   "V3":{
+      "name":"Layout and Visual Hierarchy",
+      "explanation": "Do size, position, spacing and alignment guide the eye to the most important content and the primary action first? Are related elements grouped and is spacing consistent?"
+   },
+   "V4":{
+      "name":"Visual Consistency of Components",
+      "explanation": "Do buttons, inputs, icons, cards and other components share one visual style (shape, colour, size, iconography) across all screens shown?"
+   },
+   "V5":{
+      "name":"Motion and Transitions",
+      "explanation": "When the screen changes (page navigation, dialogs opening, items added or removed, content loading), is the change animated in a way that helps the user follow what happened? Are animations smooth, quick (roughly 150-400 ms), consistent with each other, and free of distracting or unnecessary movement? Are abrupt changes disorienting?"
+   },
+   "V6":{
+      "name":"Interactive States and Affordance",
+      "explanation": "Do interactive elements look interactive? Are hover, focus, pressed, selected, disabled and loading states visually distinct and clearly shown when the user interacts?"
+   }
+}
