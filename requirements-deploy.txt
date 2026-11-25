@@ -6,4 +6,4 @@ google-genai
 openai
 opencv-python-headless
 sentence-transformers
-streamlit
+streamlit==1.67.0

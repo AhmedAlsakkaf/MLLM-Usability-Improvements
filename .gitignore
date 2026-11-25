@@ -208,3 +208,9 @@ __marimo__/
 .idea
 .DS_Store
 .junie
+
+# Local-only: promo reels/videos and their build scripts (not part of the app)
+promo/
+
+# Local-only: your own animation clips (upload them in the app instead)
+data/animations/clips/*

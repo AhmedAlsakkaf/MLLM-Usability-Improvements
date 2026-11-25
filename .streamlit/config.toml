@@ -1,7 +1,18 @@
 [theme]
 base = "dark"
-primaryColor = "#aad5f5"
-linkColor = "#aad5f5"
+primaryColor = "#f5b22b"
+linkColor = "#f5b22b"
+backgroundColor = "#121212"
+secondaryBackgroundColor = "#1b1a18"
+textColor = "#ecebe7"
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap"
+codeFont = "Fira Code:https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap"
+baseFontSize = 17
+baseRadius = "6px"
+showSidebarBorder = false
 
 [browser]
 gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"

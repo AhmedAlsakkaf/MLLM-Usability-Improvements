@@ -51,11 +51,130 @@ PRESET_QUESTIONS = [
 st.set_page_config(page_title="UI Analysis Lab", layout="wide")
 load_env()
 
+ACCENT = "#f5b22b"
+INK = "#141414"
+
+# The "marker": a hand-drawn highlighter stroke in the accent colour, slightly
+# uneven at the ends and swiped in from the left. Used for the active nav item
+# and for one word in each page headline.
+st.markdown(f"""
+<style>
+:root {{ --accent: {ACCENT}; --ink: {INK}; }}
+
+/* Inter reads best slightly tightened; inputs don't inherit it, so name them. */
+html, body, p, span, label, li, input, textarea, button, [data-baseweb] {{ letter-spacing: -0.018em; }}
+
+/* Labels: small and quiet, so they never compete with what you type. */
+[data-testid="stWidgetLabel"] p {{ font-size: .8rem; color: #ecebe78c; font-weight: 500; letter-spacing: -0.005em; }}
+/* Placeholders: faint, clearly not real content. */
+input::placeholder, textarea::placeholder {{ color: #ecebe740 !important; opacity: 1; }}
+[data-baseweb="select"] [aria-selected="false"] + div, [data-baseweb="select"] div[class*="placeholder"] {{ color: #ecebe740 !important; }}
+::selection {{ background: var(--accent); color: var(--ink); }}
+
+[data-testid="stAppDeployButton"], [data-testid="stDecoration"] {{ display: none; }}
+[data-testid="stHeader"] {{ background: transparent; }}
+.block-container {{ padding-top: 3.2rem; max-width: 1180px; }}
+
+@keyframes swipe {{ from {{ background-size: 0% 100%; }} to {{ background-size: 100% 100%; }} }}
+.marker, [data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) {{
+  background-image: linear-gradient(100deg, transparent 0.6%, var(--accent) 2.2%,
+                    #f5b22bee 6%, var(--accent) 92%, #f5b22bcc 96.5%, transparent 99%);
+  background-repeat: no-repeat; background-size: 100% 100%;
+  animation: swipe .45s cubic-bezier(.65,.05,.36,1) both;
+  color: var(--ink);
+  border-radius: .3em .7em .35em .6em;
+  box-decoration-break: clone; -webkit-box-decoration-break: clone;
+}}
+.marker {{ padding: 0 .18em; margin: 0 -.05em; }}
+
+.headline {{
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem); font-weight: 500; line-height: 1.08;
+  letter-spacing: -0.045em; margin: 0 0 1.6rem; color: var(--text-color, #ecebe7);
+}}
+
+/* ---- left navigation ---- */
+[data-testid="stSidebar"] {{ border-right: 1px solid #ffffff0d; }}
+.brand {{ font-size: 1.05rem; font-weight: 600; letter-spacing: -0.035em; margin: .2rem 0 1.4rem; }}
+.brand b {{ color: var(--accent); }}
+[data-testid="stSidebar"] [role="radiogroup"] {{ gap: .15rem; }}
+[data-testid="stSidebar"] [role="radiogroup"] label {{
+  padding: .32rem .7rem; margin: 0; width: fit-content; cursor: pointer;
+  transition: color .15s, transform .15s;
+}}
+[data-testid="stSidebar"] [role="radiogroup"] label > div > div:not([data-testid]) {{ display: none; }}
+[data-testid="stSidebar"] [role="radiogroup"] label p {{ font-size: 1.05rem; letter-spacing: -0.025em; }}
+[data-testid="stSidebar"] [role="radiogroup"] label:not(:has(input:checked)):hover {{
+  color: var(--accent); transform: translateX(3px);
+}}
+[data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) p {{ color: var(--ink); font-weight: 500; }}
+[data-testid="stSidebar"] [data-testid="stElementContainer"]:has(iframe[height="0"]) {{ display: none; }}
+.muted {{ opacity: .55; font-size: .8rem; }}
+.dot {{ display: inline-block; width: .5em; height: .5em; border-radius: 50%; margin-right: .45em; }}
+
+/* ---- controls ---- */
+button[kind="primary"], [data-testid="stBaseButton-primary"] {{ color: var(--ink) !important; font-weight: 600; }}
+button[kind="primary"] p {{ color: var(--ink) !important; }}
+[data-testid="stExpander"] details {{ border-color: #ffffff14; }}
+h3 {{ letter-spacing: -0.035em; }}
+
+/* ---- motion ----
+   Streamlit only mounts elements that are new, so this plays when you switch
+   pages or when a result appears, not on every slider move. */
+@keyframes rise {{
+  from {{ opacity: 0; transform: translateY(12px); filter: blur(4px); }}
+  to   {{ opacity: 1; transform: none; filter: none; }}
+}}
+[data-testid="stMain"] [data-testid="stVerticalBlock"] > * {{
+  animation: rise .55s cubic-bezier(.2,.75,.25,1) both;
+}}
+[data-testid="stMain"] [data-testid="stVerticalBlock"] > *:nth-child(2) {{ animation-delay: .05s; }}
+[data-testid="stMain"] [data-testid="stVerticalBlock"] > *:nth-child(3) {{ animation-delay: .10s; }}
+[data-testid="stMain"] [data-testid="stVerticalBlock"] > *:nth-child(4) {{ animation-delay: .15s; }}
+[data-testid="stMain"] [data-testid="stVerticalBlock"] > *:nth-child(5) {{ animation-delay: .20s; }}
+[data-testid="stMain"] [data-testid="stVerticalBlock"] > *:nth-child(n+6) {{ animation-delay: .25s; }}
+.headline .marker {{ animation-delay: .3s; animation-duration: .55s; }}
+
+/* While Streamlit reruns, waiting content dims softly instead of flashing. */
+[data-stale="true"] {{ opacity: .55 !important; transition: opacity .35s ease; }}
+
+button {{ transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease !important; }}
+button:hover {{ transform: translateY(-1px); }}
+button:active {{ transform: translateY(0) scale(.98); }}
+button[kind="primary"]:hover {{ box-shadow: 0 6px 22px -8px #f5b22b99; }}
+[data-baseweb="input"], [data-baseweb="textarea"], [data-baseweb="select"] > div {{ transition: border-color .2s ease, box-shadow .2s ease; }}
+[data-baseweb="input"]:focus-within, [data-baseweb="textarea"]:focus-within {{ box-shadow: 0 0 0 3px #f5b22b26; }}
+
+/* ---- phones ---- */
+@media (max-width: 640px) {{
+  .block-container {{ padding: 2.8rem 1rem 3rem; }}
+  [data-testid="stHorizontalBlock"] {{ gap: .9rem !important; }}
+  /* Stats sit two per row instead of one huge number per row. */
+  [data-testid="stHorizontalBlock"]:has([data-testid="stMetric"]) {{ flex-wrap: wrap; }}
+  [data-testid="stHorizontalBlock"]:has([data-testid="stMetric"]) > [data-testid="stColumn"] {{
+    flex: 1 1 calc(50% - .9rem) !important; min-width: calc(50% - .9rem) !important; width: auto !important;
+  }}
+  [data-testid="stMetricValue"] {{ font-size: 1.5rem; }}
+  [data-testid="stSidebar"] [role="radiogroup"] label {{ padding: .45rem .8rem; }}  /* bigger tap targets */
+}}
+
+@media (prefers-reduced-motion: reduce) {{
+  *, *::before, *::after {{ animation: none !important; transition: none !important; }}
+}}
+</style>
+""", unsafe_allow_html=True)
+
+
+def headline(before, marked, after=""):
+    """Page title with one word under the accent marker."""
+    st.markdown(f"<div class='headline'>{html.escape(before)} <span class='marker'>{html.escape(marked)}</span>"
+                f"{html.escape(after)}</div>", unsafe_allow_html=True)
+
+
 # Optional password gate for public deployments: set APP_PASSWORD in the
 # server's environment. Locally (no APP_PASSWORD) the app opens directly.
 _app_password = os.environ.get("APP_PASSWORD", "")
 if _app_password and not st.session_state.get("authenticated"):
-    st.title("UI Analysis Lab")
+    headline("UI Analysis", "Lab")
     entered = st.text_input("Password", type="password")
     if entered:
         if entered == _app_password:
@@ -174,6 +293,18 @@ def render_answer(result):
     render_measured(result.get("measured"))
 
 
+def result_label(path):
+    """'03 Nov 15:30 · record2 · identify' instead of a long folder path."""
+    name = os.path.splitext(os.path.basename(path))[0]
+    parts = name.split("__")
+    if len(parts) >= 3:
+        name = f"{parts[0]} · {parts[1]}"
+    else:
+        app_name = os.path.basename(os.path.dirname(os.path.dirname(path)))
+        name = f"{app_name} · {name.split('_gemini')[0].replace('_', ' ')}"
+    return f"{datetime.fromtimestamp(mtime(path)):%d %b %H:%M} · {name}"
+
+
 def get_client(model):
     if not model:
         st.error("Choose a model in the sidebar first.")
@@ -182,43 +313,49 @@ def get_client(model):
 
 
 # ------------------------------------------------------------------- sidebar
+PAGES = ["Ask", "Evaluate", "Add recording", "Measure", "Results"]
+
 with st.sidebar:
-    st.header("Settings")
+    st.markdown("<div class='brand'>ui analysis <b>lab</b></div>", unsafe_allow_html=True)
+    page = st.radio("Navigation", PAGES, key="page", label_visibility="collapsed")
+    # On phones the sidebar covers the page, so close it after a page is picked.
+    if st.session_state.get("_shown_page", page) != page:
+        # A unique comment per change stops Streamlit reusing the old iframe (which would not re-run).
+        st.session_state["_nav_count"] = st.session_state.get("_nav_count", 0) + 1
+        components.html(f"<!-- nav {st.session_state['_nav_count']} -->" + """<script>
+            const w = window.parent;
+            if (w.matchMedia("(max-width: 768px)").matches) {
+                const b = w.document.querySelector('[data-testid="stSidebarCollapseButton"] button');
+                if (b) b.click();
+            }</script>""", height=0)
+    st.session_state["_shown_page"] = page
+
+    st.markdown("<div style='height:2.5rem'></div>", unsafe_allow_html=True)
     default_model = os.environ.get("MLLM_MODEL") or MODELS[0]
     options = MODELS if default_model in MODELS else [default_model] + MODELS
-    choice = st.selectbox("Model", options + ["Other model name..."], index=options.index(default_model),
-                          help="The default comes from MLLM_MODEL in your .env file.")
+    choice = st.selectbox("Model", options + ["Other model name..."], index=options.index(default_model))
     model = st.text_input("Model name") if choice == "Other model name..." else choice
 
     gemini_key = os.environ.get("GEMINI_API_KEY", "")
     if model.startswith("gemini"):
-        if gemini_key and gemini_key != "YOUR_API_KEY_HERE":
-            st.success("Gemini API key found in .env")
-        else:
-            st.error("No GEMINI_API_KEY in the .env file in the repository root.")
-    elif not os.environ.get("OPENAI_API_KEY") and not os.environ.get("OPENAI_BASE_URL"):
-        st.warning("Non-Gemini models need OPENAI_API_KEY (and OPENAI_BASE_URL for other providers) in .env.")
+        key_ok = bool(gemini_key) and gemini_key != "YOUR_API_KEY_HERE"
+        key_note = "key ready" if key_ok else "GEMINI_API_KEY missing"
+    else:
+        key_ok = bool(os.environ.get("OPENAI_API_KEY") or os.environ.get("OPENAI_BASE_URL"))
+        key_note = "key ready" if key_ok else "OPENAI_API_KEY missing"
+    st.markdown(f"<span class='muted'><span class='dot' style='background:{'#7bc47f' if key_ok else '#e5534b'}'>"
+                f"</span>{key_note}</span>", unsafe_allow_html=True)
 
     example_env = os.path.join(REPO_ROOT, ".env.example")
     if os.path.exists(example_env):
         with open(example_env, encoding="utf-8") as f:
             if re.search(r"^GEMINI_API_KEY=(?!YOUR_API_KEY_HERE)\S+", f.read(), re.M):
-                st.warning(".env.example contains a real API key and is not git-ignored. "
-                           "Replace it with YOUR_API_KEY_HERE; keep the real key only in .env.")
-    st.divider()
-    st.caption("Results are saved in data/animations/results/ and data/<App>/reports/.")
+                st.warning(".env.example contains a real API key. Keep the real key only in .env.")
 
-st.title("UI Analysis Lab")
-st.caption("Ask a multimodal model about UI animations and evaluate screen recordings. "
-           "Based on Lubos et al., FSE 2026, extended in this study.")
-
-tab_ask, tab_eval, tab_add, tab_measure, tab_results = st.tabs(
-    ["Ask about a clip", "Usability evaluation", "Add a recording", "Measure (no AI)", "Saved results"])
-
-# -------------------------------------------------------- tab: ask about clip
-with tab_ask:
-    uploaded = st.file_uploader("Upload a clip (or put it in data/animations/clips/)", type=UPLOAD_TYPES,
-                                key="clip_upload")
+# -------------------------------------------------------- page: ask about clip
+if page == "Ask":
+    headline("Ask about a", "clip")
+    uploaded = st.file_uploader("Upload a clip", type=UPLOAD_TYPES, key="clip_upload")
     if uploaded is not None:
         upload_id = f"{uploaded.name}:{uploaded.size}"
         if st.session_state.get("last_clip_upload") != upload_id:
@@ -230,7 +367,7 @@ with tab_ask:
     clips = sorted((f for f in os.listdir(CLIPS) if f.lower().endswith(ep.VIDEO_EXTENSIONS)),
                    key=lambda f: -mtime(os.path.join(CLIPS, f)))
     if not clips:
-        st.info("No clips yet. Upload one above or copy it into data/animations/clips/.")
+        st.info("No clips yet. Drop one above.")
     else:
         if st.session_state.get("clip_choice") not in clips:
             st.session_state["clip_choice"] = clips[0]
@@ -253,27 +390,26 @@ with tab_ask:
                                  help="Adds the times when the screen measurably moves, so the model guesses less.")
 
         with right:
-            mode = st.radio("What do you want?", ["Identify the animation", "Ask my own question"],
-                            horizontal=True,
-                            help="'Identify' returns a fixed set of fields (name, timing, easing, code). "
-                                 "'Ask' lets you write anything.")
-            context = st.text_area("Context (optional)", height=80,
+            mode = st.segmented_control("Mode", ["Identify the animation", "Ask my own question"],
+                                        default="Identify the animation", label_visibility="collapsed",
+                                        key="ask_mode") or "Identify the animation"
+            context = st.text_area("Context", height=80,
                                    placeholder="e.g. The menu on example.com when I click the burger icon.")
             question = ""
             if mode == "Ask my own question":
-                preset = st.selectbox("Example questions", PRESET_QUESTIONS)
+                preset = st.selectbox("Start from an example", PRESET_QUESTIONS)
                 question = st.text_area("Your question", height=140,
                                         value="" if preset == PRESET_QUESTIONS[0] else preset,
                                         placeholder="e.g. What is the transition when the card expands, "
                                                     "and how do I build it in CSS?")
-            go = st.button("Ask the model", type="primary", use_container_width=True)
+            go = st.button("Ask →", type="primary", use_container_width=True)
 
         if go:
             if mode == "Ask my own question" and not question.strip():
                 st.error("Write a question first.")
             else:
                 client = get_client(model)
-                with st.spinner(f"Sending {clip} to {client.model}. This usually takes 10 to 60 seconds..."):
+                with st.spinner(f"Asking {client.model}…"):
                     try:
                         if mode == "Identify the animation":
                             result = ep.identify_animation(clip_path, client, context or None, fps, start, end, ground)
@@ -292,17 +428,17 @@ with tab_ask:
         result = st.session_state.get("last_answer")
         if result and result.get("video") == clip:
             st.divider()
-            st.caption(f"Answer from {result['model_name']} at {result['fps']} frames per second")
             if result.get("kind") == "identify":
                 render_animation(result)
             else:
                 render_answer(result)
 
-# --------------------------------------------------- tab: usability evaluation
-with tab_eval:
+# -------------------------------------------------- page: usability evaluation
+elif page == "Evaluate":
+    headline("Evaluate", "usability")
     apps = sorted(d for d in os.listdir(DATA) if os.path.exists(os.path.join(DATA, d, "task_description.json")))
     if not apps:
-        st.info("No applications found. Add one in the 'Add a recording' tab.")
+        st.info("No applications yet. Add one under Add recording.")
     else:
         app = st.selectbox("Application", apps)
         app_path = os.path.join(DATA, app)
@@ -318,17 +454,18 @@ with tab_eval:
         with left:
             show_video(video_path)
         with right:
-            st.markdown(f"**App:** {description['description']}  \n**User:** {persona['description']}  \n"
-                        f"**Task:** {task['description']}")
-            criteria = st.radio("Criteria", ["visual", "nielsen"], horizontal=True,
-                                format_func=lambda c: {"visual": "Visual design (6, new)",
-                                                       "nielsen": "Nielsen heuristics (10, original)"}[c])
-            eval_fps = st.slider("Frames per second the model sees", 1, 15, ep.DEFAULT_FPS[criteria],
+            with st.expander("Task details"):
+                st.markdown(f"**App:** {description['description']}  \n**User:** {persona['description']}  \n"
+                            f"**Task:** {task['description']}")
+            criteria = st.segmented_control("Criteria", ["visual", "nielsen"], default="visual", key="criteria",
+                                format_func=lambda c: {"visual": "Visual design",
+                                                       "nielsen": "Nielsen heuristics"}[c]) or "visual"
+            eval_fps = st.slider("Frames per second", 1, 15, ep.DEFAULT_FPS[criteria],
                                  key=f"eval_fps_{criteria}",
-                                 help="The original study used 1.")
-            eval_ground = st.checkbox("Give the model measured colours and motion", value=False)
+                                 help="Frames per second the model sees. The original study used 1.")
+            eval_ground = st.checkbox("Add measured colours and motion", value=False)
             n_calls = len(ep.load_json(ep.CRITERIA_FILES[criteria]))
-            run = st.button(f"Run evaluation ({n_calls} model requests)", type="primary", use_container_width=True)
+            run = st.button(f"Run evaluation · {n_calls} requests", type="primary", use_container_width=True)
 
         if run:
             client = get_client(model)
@@ -364,10 +501,9 @@ with tab_eval:
                         st.markdown(f"{severity_label(issue.get('severity', ''))} {issue.get('description', '')}  \n"
                                     f"*Fix:* {issue.get('recommendation', '')}")
 
-            st.markdown("#### Merge duplicates and rank by severity")
+            st.markdown("### Merge & rank")
             if importlib.util.find_spec("sentence_transformers") is None:
-                st.info("This step needs one more package (a large download): "
-                        "`pip install sentence-transformers`. Restart the app afterwards.")
+                st.info("Needs `pip install sentence-transformers`.")
             elif st.button("Merge and rank"):
                 client = get_client(model)
                 with st.spinner("Merging similar issues and ranking them..."):
@@ -381,28 +517,30 @@ with tab_eval:
                     st.markdown(f"**{n}.** {severity_label(issue['severity'])} {issue['description']}  \n"
                                 f"*Fix:* {issue['recommendation']}  \n*Why this rank:* {issue['rank_justification']}")
 
-# ------------------------------------------------------- tab: add a recording
-with tab_add:
-    st.markdown("Add a screen recording of someone doing **one task** in an app. "
-                "It is copied into `data/<App>/` and appears in the *Usability evaluation* tab.")
+# ------------------------------------------------------ page: add a recording
+elif page == "Add recording":
+    headline("Add a", "recording")
+    st.caption("One screen recording of one task.")
     apps = sorted(d for d in os.listdir(DATA) if os.path.exists(os.path.join(DATA, d, "task_description.json")))
     recording = st.file_uploader("Screen recording", type=UPLOAD_TYPES, key="recording_upload")
-    app_choice = st.selectbox("Application", ["New application..."] + apps)
-    new_app = app_choice == "New application..."
+    app_choice = st.selectbox("Application", apps, index=None,
+                              placeholder="New application (or pick an existing one)")
+    new_app = app_choice is None
     app_name = st.text_input("Application name", placeholder="e.g. MyShop") if new_app else app_choice
-    app_description = st.text_area("What is the application? (1-2 sentences)", height=70) if new_app else None
+    app_description = st.text_area("What is the application?", height=70) if new_app else None
 
     personas = []
     if not new_app:
         personas = [p["name"] for p in
                     ep.load_json(os.path.join(DATA, app_choice, "task_description.json"))["personas"]]
-    persona_choice = st.selectbox("Who is the user in the video?", ["New user type..."] + personas)
-    new_persona = persona_choice == "New user type..."
+    persona_choice = st.selectbox("Who is the user in the video?", personas, index=None,
+                                  placeholder="New user type (or pick an existing one)")
+    new_persona = persona_choice is None
     persona_name = st.text_input("User type", placeholder="e.g. Customer") if new_persona else persona_choice
-    persona_description = (st.text_area("Describe this user and their goal (1 sentence)", height=70)
+    persona_description = (st.text_area("Who are they and what do they want?", height=70)
                            if new_persona else None)
     task_name = st.text_input("Short task name", placeholder="e.g. Checkout")
-    task_description = st.text_area("What does the user do in the video, step by step?", height=90)
+    task_description = st.text_area("What happens in the video, step by step?", height=90)
 
     if st.button("Add recording", type="primary"):
         required = {"recording": recording, "application name": app_name, "user type": persona_name,
@@ -419,12 +557,12 @@ with tab_add:
                 temp_path = save_upload(recording, tmp)
                 task_key = ep.add_recording(temp_path, app_name, app_description, persona_name,
                                             persona_description, task_name, task_description)
-            st.success(f"Added as task {task_key}. Open the 'Usability evaluation' tab to run it.")
+            st.success(f"Added as {task_key}. Find it under Evaluate.")
 
-# ----------------------------------------------------------- tab: measurement
-with tab_measure:
-    st.markdown("Measures colours, WCAG contrast and screen motion directly from the pixels. "
-                "No model and no API key are used, so it is free.")
+# ---------------------------------------------------------- page: measurement
+elif page == "Measure":
+    headline("Measure the", "pixels")
+    st.caption("Colours, contrast and motion, straight from the video. No AI, free.")
     videos = sorted(os.path.relpath(p, REPO_ROOT) for ext in ep.VIDEO_EXTENSIONS
                     for p in glob.glob(os.path.join(DATA, "**", f"*{ext}"), recursive=True))
     if not videos:
@@ -433,17 +571,16 @@ with tab_measure:
         video_rel = st.selectbox("Video", videos)
         video_abs = os.path.join(REPO_ROOT, video_rel)
         if st.button("Measure", type="primary"):
-            with st.spinner("Measuring. Long recordings can take a minute or two..."):
+            with st.spinner("Measuring…"):
                 colours, motion = cached_measure(video_abs, mtime(video_abs))
             st.session_state["measure"] = (video_rel, colours, motion)
         measured = st.session_state.get("measure")
         if measured and measured[0] == video_rel:
             _, colours, motion = measured
-            st.markdown(f"#### Colours (background {colours['background']})")
-            st.caption("Share of the screen · contrast with the background. "
-                       "WCAG needs 4.5:1 for text and 3:1 for large text and buttons.")
+            st.markdown(f"### Colours · bg {colours['background']}")
+            st.caption("Screen share · contrast. WCAG: 4.5:1 text, 3:1 large text and buttons.")
             swatches(colours["palette"])
-            st.markdown("#### Motion")
+            st.markdown("### Motion")
             c1, c2, c3, c4 = st.columns(4)
             c1.metric("Screen changes", motion["screen_changes"])
             c2.metric("Instant", motion["instant"])
@@ -453,16 +590,16 @@ with tab_measure:
                 st.dataframe(pd.DataFrame(motion["segments"])[["start", "end", "duration", "peak_area", "kind"]],
                              hide_index=True)
 
-# --------------------------------------------------------------- tab: results
-with tab_results:
+# -------------------------------------------------------------- page: results
+elif page == "Results":
+    headline("Saved", "results")
     files = glob.glob(os.path.join(RESULTS, "*.json")) + glob.glob(os.path.join(DATA, "*", "reports", "*.json"))
     files = sorted(files, key=mtime, reverse=True)
     if not files:
         st.info("No saved results yet.")
     else:
-        chosen = st.selectbox("Saved result (newest first)", files,
-                              format_func=lambda p: f"{os.path.relpath(p, REPO_ROOT)}  ·  "
-                                                    f"{datetime.fromtimestamp(mtime(p)):%d %b %H:%M}")
+        chosen = st.selectbox("Result", files, label_visibility="collapsed",
+                              format_func=result_label)
         data = ep.load_json(chosen)
         if isinstance(data, dict) and data.get("kind") == "ask":
             render_answer(data)
